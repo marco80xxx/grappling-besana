@@ -13,6 +13,7 @@ const jsonDataCollection = defineCollection({
     github: z.string().url(),
     githubText: z.string(),
     portfolioImage: z.string(),
+    timetableImage: z.string(),
     email: z.string().email(),
     linkedin: z.string().url(),
     instagram: z.string().url(),
