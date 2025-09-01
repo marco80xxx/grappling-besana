@@ -17,7 +17,7 @@ const {
   emailIconName,
   github,
   gbMiniLogo,
-  portfolioImage,
+  timetableImage,
   contactSectionButtonText,
 } = staticData.data;
 ---
@@ -25,7 +25,7 @@ const {
 <section
   class="scroll-m-16 px-8 max-sm:px-4 py-8"
   id="home"
-  aria-label="Professional profile and introduction"
+  aria-label="nogi grappling and brazilian jiu-jitsu courses in besana in brianza"
 >
   <div
     class="mx-auto mb-4 h-96 w-full max-w-7xl rounded-2xl bg-linear-to-r p-[.2rem] max-md:h-auto"
@@ -99,19 +99,8 @@ const {
     </div>
   </div>
   <div
-    class="mx-auto grid max-w-7xl grid-cols-2 grid-rows-4 max-sm:gap-3 gap-4 max-md:h-[80vh] max-sm:h-[900px] max-xl:h-[550px] xl:h-[700px] md:grid-cols-4 md:grid-rows-2"
+    class="mx-auto grid max-w-7xl grid-cols-2 grid-rows-4 max-sm:gap-3 gap-4 max-md:h-[200vh] max-sm:h-[1300px] max-xl:h-[450px] xl:h-[1300px] md:grid-cols-4 md:grid-rows-2"
   >
-    <div
-      class="col-start-2 row-start-2 flex flex-col gap-3 rounded-2xl border border-emerald-50 bg-linear-to-r from-riptide-200 to-mint-200 p-8 dark:border-zinc-800 dark:border-2 dark:bg-zinc-800 dark:bg-gradient-radial dark:from-riptide-500 dark:to-mint-500 max-md:gap-0 max-xl:p-5 max-md:p-4 max-lg:gap-1 md:col-start-4"
-    >
-      <div class="flex flex-col-reverse items-start gap-4 max-md:gap-2">
-        <Heading text="Beyond the Code" level={2} />
-      </div>
-
-      <div class="overflow-y-auto">
-        <Hobbies />
-      </div>
-    </div>
 
     <div
       class="col-span-4 row-span-2 rounded-2xl bg-linear-to-r from-white dark:from-black to-white dark:to-black p-[.2rem] hover:to-white dark:hover:to-black md:col-start-1 md:row-start-1"
@@ -131,19 +120,19 @@ const {
           />
           <Heading text="Cosa facciamo..." level={3} />
         </div>
-        <p class="z-2 my-6 text-lg font-semibold leading-6 dark:text-gray-200 text-blacktext max-xl:text-base max-w-[97%] max-md:max-w-[100%] text-justify">
+        <p class="z-2 my-6 text-lg font-semibold leading-7 dark:text-gray-200 text-blacktext max-xl:text-base max-w-[97%] max-md:max-w-[100%] text-justify">
          Il grappling è una disciplina completa che unisce forza, tecnica e strategia, insegnandoti a controllare il tuo avversario
          attraverso sottomissioni e posizioni dominanti. Che tu sia un principiante o un esperto, il grappling è un modo
          per metterti alla prova, migliorare la tua forma fisica e imparare l'arte della lotta corpo a corpo.
           <span class="bg-linear-to-r from-red-500 to-mint-500 font-black bg-clip-text text-transparent dark:from-red-600 dark:to-red-800">Unisciti a noi!</span>
         </p>
         <img
-          class="relative left-0 z-0 mt-40 w-full object-cover transition-all ease-in-out duration-500 group-hover:rotate-2 group-hover:scale-185 max-xl:mt-28 max-lg:mt-10 max-sm:mt-0 max-md:scale-100 max-sm:scale-125 scale-180 max-md:group-hover:scale-105 before:bg-[radial-gradient(circle,rgba(13,188,130)_0,rgba(1,45,34)_100%)] before:absolute before:left-30 before:-bottom-0 before:h-[80%] before:aspect-square before:rounded-full before:blur-3xl before:opacity-80 before:-z-10 before:transition"
+          class="relative left-0 z-0 mt-0 w-full object-cover transition-all ease-in-out duration-500 group-hover:rotate-0 group-hover:scale-95 max-xl:mt-14 max-lg:mt-5 max-sm:mt-0 max-md:scale-100 max-sm:scale-100 scale-90 max-md:group-hover:scale-105 before:bg-[radial-gradient(circle,rgba(13,188,130)_0,rgba(1,45,34)_100%)] before:absolute before:left-30 before:-bottom-10 before:h-[80%] before:aspect-square before:rounded-full before:blur-3xl before:opacity-80 before:-z-10 before:transition"
           src={timetableImage}
-          alt="View of two website interfaces with modern and dark design. The first screen shows the title 'Behind the Code' with a rocket and dark background, explaining the origin of a community software project. The second screen presents a platform for finding speakers, with an attractive design, expert photos, and a prominent search button."
+          alt="Orari dei corsi Besana Grappling no-gi e Brazilian Jiu-Jitsu"
           loading="lazy"
-          width="480"
-          height="320"
+          width="430"
+          height="1050"
         />
       </article>
     </div>
