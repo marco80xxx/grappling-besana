@@ -39,6 +39,13 @@ Tra i risultati agonistici più significativi:
 
 All'interno del team sono presenti numerose cinture di alto grado tra Marroni e Viola che supportano l'attività di insegnamento nello spirito della collaborazione reciproca che ci contraddistingue!
 
+## La nostra sede 📍
+
+La sede del team si trova presso la Polisportiva Besanese, realtà sportiva storica in Brianza, che vanta corsi di qualità da oltre 50 anni, in una struttura bella e immersa nel verde. 
+
+Il nostro indirizzo: 🔗 <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4786a5508f4f018d:0xf9aef426a001ed0c?sa=X&ved=1t:8290&ictx=111" target="blank">**via Alcide de Gasperi 89, Besana in Brianza (MB)**</a>
+
+
 ## Let's Do Amazing Things 🚀 
 
 Ti aspettiamo per una prova, contattaci su instagram o dal link qui sotto! 👇
