@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+
+const [staticData] = await getCollection("staticData");
+const {
+  profileAlt,
+  profileLink,
+  profileImage,
+  profileName,
+  profileTitle,
+  email,
+  emailIconName,
+  github,
+  timetableImage,
+  contactSectionButtonText,
+} = staticData.data;
+---
+<section class="py-8 px-8 max-md:py-4 mb-4 scroll-m-16" id="timetable">
+<div
+    class="mx-auto mb-4 h-full w-full max-w-7xl rounded-2xl bg-linear-to-r p-[.2rem] flex justify-center items-center max-md:h-auto">
+    <div class="relative z-20 flex justify-center items-center w-200 rounded-full bg-mint-900 mx-auto">
+        <div
+            class="w-full aspect-square bg-center bg-cover scale-100 transition-transform"
+            style={`background-image: url(${timetableImage})`}
+            aria-label={timetableImage}
+        ></div>
+    </div>
+</div>
+</section>
