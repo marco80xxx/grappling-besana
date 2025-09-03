@@ -60,7 +60,7 @@ const baseClasses = `
 const variantClasses = {
     default: `
         text-blacktext/90 
-        dark:text-white
+        dark:text-blacktext/90
         dark:hover:text-white 
         px-6 
         py-4 
@@ -74,8 +74,8 @@ const variantClasses = {
         bg-linear-to-r 
         from-white-300
         to-white-300
-        dark:from-red-100
-        dark:to-red-10
+        dark:from-red-800
+        dark:to-red-900
     `,
     big: `
         font-normal 
@@ -113,7 +113,7 @@ const variantClasses = {
         max-xl:text-base 
         max-sm:text-sm 
         dark:bg-zinc-800 
-        bg-white
+        bg-black
         dark:hover:bg-mint-500
     `,
 };
@@ -146,7 +146,7 @@ const loadingAriaLabel = isLoading ? `${buttonAriaLabel} - Loading` : buttonAria
 ---
 
 <div
-    class="w-fit h-fit from-transparent via-riptide-300 to-transparent dark:from-transparent dark:via-mint-500 dark:to-transparent  from-10% to-90% bg-conic/[from_var(--border-angle)] p-px hover:shadow-lg
+    class="w-fit h-fit from-transparent via-riptide-300 to-transparent dark:from-transparent dark:via-mint-500 dark:to-transparent  p-px hover:shadow-lg
     hover:shadow-mint-500/30 rounded-full"
 >
     <a 
