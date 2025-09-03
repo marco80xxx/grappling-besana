@@ -38,7 +38,7 @@ const {
             class="absolute inset-0 h-full w-full rounded-fullfrom-transparent to-red-500 dark:from-transparent f dark:to-red-1000 animate-rotate-border bg-conic/[from_var(--border-angle)]"
           >
           </div>
-          <div class="relative z-20 flex w-full rounded-full bg-mint-900">
+          <div class="relative z-20 flex w-full rounded-full">
             <div
               class="w-full aspect-square rounded-full bg-center bg-cover"
               style={`background-image: url(${profileImage})`}
@@ -57,7 +57,7 @@ const {
         class="flex h-full w-7/12 flex-col justify-center gap-4 p-4 max-md:w-full max-md:gap-2"
       >
         <span
-          class="relative inline-flex items-center text-xs font-semibold leading-0 dark:text-white text-blacktext max-md:font-medium max-sm:justify-center"
+          class="relative inline-flex items-center text-xs font-semibold leading-4 dark:text-white text-blacktext max-md:font-medium max-sm:justify-center"
         >
           <span
             class="before:mr-2 before:block before:h-1.5 before:w-1.5 before:rounded-full before:bg-red-400 before:shadow-[0px_0px_0px_3px_rgba(230,0,0,0.5)] before:animate-pulse before:content-['']"
@@ -66,16 +66,13 @@ const {
         </span>
 
         <h1
-          class="text-4xl font-black leading-none text-blacktext dark:text-white max-xl:text-3xl max-lg:text-2xl max-sm:text-center"
+          class="text-4xl font-black leading-8 text-blacktext dark:text-white max-xl:text-3xl max-lg:text-2xl max-sm:text-center"
         >
           {profileName}
         </h1>
         <p
-          class="mb-0 text-lg font-semibold leading-6 text-blacktext dark:text-gray-200 max-xl:text-base text-justify"
+          class="mb-4 text-lg font-semibold leading-6 text-blacktext dark:text-gray-200 max-xl:text-base text-justify"
         >
-          <span
-            class="bg-linear-to-r from-riptide-500 to-mint-500 bg-clip-text font-black text-transparent dark:from-red-400 dark:to-mint-300"
-            >{profileTitle}</br></span>
             Benvenuto, scopri il Brazilian Jiu-Jitsu No-Gi (Grappling)! Offriamo corsi dinamici e coinvolgenti per principianti
            ed esperti. </br>Allena corpo e mente, acquisisci tecniche efficaci di grappling e lotta a terra, e unisciti a una comunità appassionata.
         </p>

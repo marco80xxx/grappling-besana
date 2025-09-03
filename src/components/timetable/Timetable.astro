@@ -12,18 +12,25 @@ const {
   emailIconName,
   github,
   timetableImage,
+  timetableTitle,
   contactSectionButtonText,
 } = staticData.data;
 ---
-<section class="py-8 px-8 max-md:py-4 mb-4 scroll-m-16" id="timetable">
+
+<section class="py-8 px-8 max-md:py-1 mb-4 scroll-m-16" id="timetable">
+    <h1
+        class="text-4xl font-black leading-24 text-blacktext dark:text-white items-center justify-center text-center"
+        >
+        {timetableTitle}
+    </h1>
 <div
-    class="mx-auto mb-4 h-full w-full max-w-7xl rounded-2xl bg-linear-to-r p-[.2rem] flex justify-center items-center max-md:h-auto">
-    <div class="relative z-20 flex justify-center items-center w-200 rounded-full bg-mint-900 mx-auto">
-        <div
-            class="w-full aspect-square bg-center bg-cover scale-100 transition-transform"
-            style={`background-image: url(${timetableImage})`}
-            aria-label={timetableImage}
-        ></div>
-    </div>
+    class="mx-auto mb-4 h-full w-full max-w-7xl rounded-2xl flex justify-center items-center max-md:h-auto">
+        <div class="relative z-20 flex justify-center items-center w-200 mx-auto">
+            <div
+                class="w-full aspect-square bg-center bg-contain bg-no-repeat scale-110 transition-transform"
+                style={`background-image: url(${timetableImage})`}
+                aria-label={timetableImage}
+            ></div>
+        </div>
 </div>
 </section>

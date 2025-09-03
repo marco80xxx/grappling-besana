@@ -14,6 +14,7 @@ const jsonDataCollection = defineCollection({
     githubText: z.string(),
     portfolioImage: z.string(),
     timetableImage: z.string(),
+    timetableTitle: z.string(),
     email: z.string().email(),
     linkedin: z.string().url(),
     instagram: z.string().url(),
