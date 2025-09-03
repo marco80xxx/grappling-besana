@@ -7,6 +7,11 @@ image:
   url: "/images/GB-Logo-Tondo-01.svg"
   alt: "Grappling Besana Logo"
 ---
+## La nostra sede 📍
+
+La sede del team si trova presso la Polisportiva Besanese, realtà sportiva storica in Brianza, che vanta corsi di qualità da oltre 50 anni, in una struttura bella e immersa nel verde. 
+
+Il nostro indirizzo: 🔗 <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4786a5508f4f018d:0xf9aef426a001ed0c?sa=X&ved=1t:8290&ictx=111" target="blank">**via Alcide de Gasperi 89, Besana in Brianza (MB)**</a>
 
 ## La nostra idea di Team
 
@@ -22,7 +27,7 @@ Unisciti a noi e scopri il piacere di imparare e crescere insieme, in un team ch
 
 ## Insegnanti
 
-Il coach di Grappling Besana è Marco Beccari, cintura nera di Brazilian Jiu-Jitsu dal 2022, grado conseguito in una delle più blasonate accademie della Brianza. Pratica BJJ dal 2014 ed è anche una cintura nera di Judo, che ha praticato per molti anni fin dalle scuole medie.
+Il coach di Grappling Besana è <a href="https://www.instagram.com/bjj_marcobex/" target="blank">Marco Beccari</a>, cintura nera col grado di **Maestro** nel Brazilian Jiu-Jitsu, riconosciuto da FIJLKAM/CONI e Unione Italiana Jiu-jitsu. Ha conseguito la cintura nera nel giugno 2022 in una delle più blasonate accademie della Brianza. Pratica BJJ dal 2014 ed è anche una cintura nera di Judo, che ha praticato per molti anni fin dalle scuole medie.
 
 Tra i risultati agonistici più significativi:
 <ul>
@@ -39,13 +44,7 @@ Tra i risultati agonistici più significativi:
 
 All'interno del team sono presenti numerose cinture di alto grado tra Marroni e Viola che supportano l'attività di insegnamento nello spirito della collaborazione reciproca che ci contraddistingue!
 
-## La nostra sede 📍
-
-La sede del team si trova presso la Polisportiva Besanese, realtà sportiva storica in Brianza, che vanta corsi di qualità da oltre 50 anni, in una struttura bella e immersa nel verde. 
-
-Il nostro indirizzo: 🔗 <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4786a5508f4f018d:0xf9aef426a001ed0c?sa=X&ved=1t:8290&ictx=111" target="blank">**via Alcide de Gasperi 89, Besana in Brianza (MB)**</a>
-
 
 ## Let's Do Amazing Things 🚀 
 
-Ti aspettiamo per una prova, contattaci su instagram o dal link qui sotto! 👇
+Ti aspettiamo per una prova, contattaci su <a href="https://www.instagram.com/grappling_besana/" target="blank">instagram</a> o dal link qui sotto! 👇
