@@ -30,8 +30,7 @@ Infine, il grappling crea un forte senso di **comunità**. L'allenamento a stret
 - Venerdì - 19:30-20:30
 - Sabato - 11:00-13:00*
 
-<i>*Open Mat aperto ai visitatori purché iscritti in altre accademie con regolare visita medica sportiva></i>
-
+<i>*Open Mat aperto ai visitatori purché iscritti in altre accademie con regolare visita medica sportiva</i>
 
 ## 🎯 Obiettivi
 
