@@ -1,0 +1,27 @@
+---
+const allPosts = await Astro.glob("../../pages/blog/posts/*.md");
+const skills = [
+    ...new Set(allPosts.map((post) => post.frontmatter.skills).flat()),
+];
+import Capsule from "../ui/Capsule.astro";
+
+const { variant = "default" } = Astro.props;
+
+const baseClasses = "flex flex-wrap";
+
+const variantClasses = {
+    default: "gap-3 max-lg:gap-1",
+    vertical: "gap-6 flex-col"
+} as const;
+
+const classes = `${baseClasses} ${variantClasses[variant as keyof typeof variantClasses] || variantClasses.default}`;
+---
+
+<div class={classes}>
+    {skills.map((skill) => (
+        <Capsule lang={skill} linkEnabled={true} size="md" />
+    ))}
+</div>
+
+
+

@@ -1,5 +1,5 @@
 ---
-const { title, url, image, languages, description, size = "xs" } = Astro.props;
+const { title, url, image, description, size = "xs" } = Astro.props;
 
 import Capsule from "../ui/Capsule.astro";
 ---
@@ -14,7 +14,7 @@ import Capsule from "../ui/Capsule.astro";
         <h2 class="text-3xl font-bold text-blacktext dark:text-mint-50">
           {title}
         </h2>
-
+<!--
         <div class="flex flex-wrap gap-3">
           {
             languages.map((language: string) => (
@@ -22,7 +22,7 @@ import Capsule from "../ui/Capsule.astro";
             ))
           }
         </div>
-
+-->
         <p class="text-lg max-xl:text-base w-full max-md:max-w-[85%] my-2 leading-6 font-medium text-blacktext dark:text-gray-200">
           {description}
         </p>
