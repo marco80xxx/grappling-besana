@@ -1,8 +1,8 @@
 ---
 layout:  /src/layouts/ProjectLayout.astro
-title: 'Preparazione Fisica'
+title: 'Preparazione Atletica'
 pubDate: 2025-09-01
-description: 'Allenamenti di Preparazione Fisica'
+description: 'Condizionamento fisico per gli sport da lotta'
 skills: ["strenght", "conditiong"]
 image:
   url: "/images/projects/judo/s-and-c-strenght-and-conditioning.jpg"
