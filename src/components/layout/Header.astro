@@ -9,7 +9,7 @@ const [staticData] = await getCollection("staticData");
 const { github, githubIconName, instagram, instagramIconName } = staticData.data;
 
 const currentPath = Astro.url.pathname;
-const routes = ["/", "/portfolio", "/about-me"];
+const routes = ["/", "/portfolio", "/about-us"];
 
 // Check if the current route is in the list of routes
 const isActiveRoute = routes.includes(currentPath);
