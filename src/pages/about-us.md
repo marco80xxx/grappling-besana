@@ -44,6 +44,10 @@ Tra i risultati agonistici più significativi:
 
 All'interno del team sono presenti numerose cinture di alto grado tra Marroni e Viola che supportano l'attività di insegnamento nello spirito della collaborazione reciproca che ci contraddistingue!
 
+## Orari 2025/2026
+
+<img src="..\public\images\timetable.png" alt="orari grappling bjj judo s&c Besana Brianza">
+
 
 ## Let's Do Amazing Things 🚀 
 
