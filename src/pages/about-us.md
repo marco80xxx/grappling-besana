@@ -55,7 +55,7 @@ Unisciti a noi e scopri il piacere di imparare e crescere insieme, in un team ch
       />
     </svg>
   </div>
-  <img src="..\public\images\marco.png"
+  <img src="../public/images/marco.png"
     alt="Marco Beccari in a Brazilian Jiu-Jitsu rashguard, smiling confidently in a well-lit gym environment with mats and training equipment visible in the background, conveying a welcoming and positive atmosphere"
     style="display: block; border-radius: 50%; width: 200px; height: 200px; object-fit: cover; margin: 4px; position: relative; z-index: 1;">
 </div>
