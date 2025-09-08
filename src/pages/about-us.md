@@ -34,15 +34,15 @@ Il coach di Grappling Besana è <a href="https://www.instagram.com/bjj_marcobex/
 
 Tra i risultati agonistici più significativi:
 <ul>
-<li>2022 Roma: Oro Europeo Master 3 IBJJF - Cinture Marroni</li>
-<li>2022 Luxembourg: Oro No-gi Master NAGA - Cinture Nere</li>
-<li>2019 Barcellona: Oro Europe Master Open IBJJF - Cinture Viola</li>
-<li>2019 Firenze: Oro Italiano Gi Master UIJJ - Cinture Viola</li>
-<li>2019 Firenze: Oro Italiano No-Gi Master UIJJ - Cinture Viola</li>
-<li>2018 Firenze: Oro Italiano Gi Master UIJJ - Cinture Viola</li>
-<li>2018 Firenze: Oro Italiano No-Gi Master UIJJ - Cinture Viola</li>
-<li>2017 Firenze: Oro Assoluti Italiano No-Gi Master UIJJ - Viola</li>
-<li>2016 Lisbona: Argento Europeo Master 2 IBJJF - Cinture Blu</li>
+<li>2022 Roma: 🥇 Oro Europeo Master 3 IBJJF - Cinture Marroni</li>
+<li>2022 Luxembourg: 🥇 Oro No-gi Master NAGA - Cinture Nere</li>
+<li>2019 Barcellona: 🥇 Oro Europe Master Open IBJJF - Cinture Viola</li>
+<li>2019 Firenze: 🥇 Oro Italiano Gi Master UIJJ - Cinture Viola</li>
+<li>2019 Firenze: 🥇 Oro Italiano No-Gi Master UIJJ - Cinture Viola</li>
+<li>2018 Firenze: 🥇 Oro Italiano Gi Master UIJJ - Cinture Viola</li>
+<li>2018 Firenze: 🥇 Oro Italiano No-Gi Master UIJJ - Cinture Viola</li>
+<li>2017 Firenze: 🥇 Oro Assoluti Italiano No-Gi Master UIJJ - Viola</li>
+<li>2016 Lisbona: 🥈 Argento Europeo Master 2 IBJJF - Cinture Blu</li>
 </ul>
 
 All'interno del team sono presenti numerose cinture di alto grado tra Marroni e Viola che supportano l'attività di insegnamento nello spirito della collaborazione reciproca che ci contraddistingue!
