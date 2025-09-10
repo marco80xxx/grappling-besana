@@ -9,7 +9,7 @@ image:
   alt: "judo polisportiva besanese"
 --- 
 
-Il corso di **Judo** è a cura di Polisportiva Besanese, sotto la guida del Maestro <a href="https://www.instagram.com/comi.ale/">Alessandro Comi</a>, e degli istruttori cintura nera **Emanuele Castagna** e **Filippo Poni**. Lo proponiamo in abbinamento al Grappling/Bjj per un miglioramento complessivo delle skill dell'atleta, sia in piedi che a terra, compreso nell'abbonamento al pacchetto FULL, oppure come integrazione del pacchetto BASE.
+Il corso di **Judo** è a cura di <a href="https://www.instagram.com/besanesejudo/" target="blank">Besanese Judo</a>, sotto la guida del Maestro <a href="https://www.instagram.com/comi.ale/" target="blank">Alessandro Comi</a>, e degli istruttori cintura nera **Emanuele Castagna** e **Filippo Poni**. Lo proponiamo in abbinamento al Grappling/Bjj per un miglioramento complessivo delle skill dell'atleta, sia in piedi che a terra, compreso nell'abbonamento al pacchetto FULL, oppure come integrazione del pacchetto BASE.
 
 ## 💡 i Benefici del Judo
 
