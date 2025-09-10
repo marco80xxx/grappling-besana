@@ -13,6 +13,8 @@ La **Preparazione** (S&C - Strenght and Conditioning) viene proposta in abbiname
 
 ## 👨‍🏫 Il Coach di S&C
 
+![besanese judo preparazione atletica S&C coach](/images/filippo.png "filippo poni S&C coach preparazione atletica per sport da lotta")
+
 Filippo Poni, coach innanzitutto della Besanese Judo, ha conseguito la laurea in Scienze Motorie e Sportive presso l'Università Statale di Milano. Dal 2020 è attivo come personal trainer e, dal 2024, collabora con una palestra specializzata in strength & conditioning. Parallelamente, è un allenatore di judo certificato e dal 2021 si occupa in modo specifico della preparazione fisica degli atleti, integrando il lavoro fuori dal tatami.
 
 ## 📑 Struttura del corso
