@@ -9,9 +9,19 @@ image:
   alt: "Preparazione Forza e Condizionamento Fisico per gli sport di lotta"
 --- 
 
-La **Preparazione** (S&C - Strenght and Conditioning) viene proposta in abbinamento alle discipline di lotta, con abbonamento FULL oppure ad integrazione del BASE. I corsi sono tenuti da <a href="https://www.instagram.com/filippo_poni/">**Filippo Poni**</a>, preparatore Atletico e Cintura Nera di Judo, responsabile della preparazione del gruppo Agonisti Besanese Judo.
+La **Preparazione** (S&C - Strenght and Conditioning) viene proposta in abbinamento alle discipline di lotta, con abbonamento FULL oppure ad integrazione del BASE. I corsi sono tenuti da <a href="https://www.instagram.com/filippo_poni/" target="blank">**Filippo Poni**</a>, preparatore Atletico e Cintura Nera di Judo, responsabile della preparazione del gruppo Agonisti Besanese Judo.
 
-## 💡 i Benefici di una adeguata preparazione
+## 👨‍🏫 Il Coach di S&C
+
+Filippo Poni, coach innanzitutto della Besanese Judo, ha conseguito la laurea in Scienze Motorie e Sportive presso l'Università Statale di Milano. Dal 2020 è attivo come personal trainer e, dal 2024, collabora con una palestra specializzata in strength & conditioning. Parallelamente, è un allenatore di judo certificato e dal 2021 si occupa in modo specifico della preparazione fisica degli atleti, integrando il lavoro fuori dal tatami.
+
+## 📑 Struttura del corso
+
+La preparazione settimanale prevede un allenamento suddiviso su due sessioni principali:
+- Il **lunedì** è dedicato allo sviluppo di potenza e condizionamento aerobico, mirati a migliorare la resistenza e l'esplosività. 
+- Il **venerdì**, invece, l'attenzione si sposta sulla forza e sulla potenza individualizzata, con carichi e protocolli di allenamento attentamente calibrati in base alle esigenze e ai massimali di ciascun atleta.
+
+## 💡 I Benefici di una adeguata preparazione
 
 La preparazione fisica **Strength and Conditioning (S&C)** negli sport di lotta offre diversi benefici fondamentali per migliorare le performance e prevenire gli infortuni. Si concentra sul potenziamento delle qualità atletiche essenziali, che vanno oltre la semplice tecnica marziale.
 
