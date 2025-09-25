@@ -4,7 +4,7 @@ import Social from "../ui/Social.astro";
 import { getCollection } from "astro:content";
 
 const [staticData] = await getCollection("staticData");
-const { email, emailIconName, github, githubIconName, linkedin, linkedinIconName, instagram, instagramIconName } = staticData.data;
+const { email, emailIconName, whatsapp, github, githubIconName, linkedin, linkedinIconName, instagram, instagramIconName } = staticData.data;
 
 const { items = [] }: { items: (keyof typeof menu)[] } = Astro.props as {
   items: (keyof typeof menu)[];
@@ -164,6 +164,7 @@ const baseClasses = {
     role="group"
     aria-label="Social Media Links"
   >
+    {whatsapp && <Social link={whatsapp} iconName="whatsapp" />}
     <Social link={email} iconName={emailIconName} />
     <Social link={instagram} iconName={instagramIconName} />
   </div>

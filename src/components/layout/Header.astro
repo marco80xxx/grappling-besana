@@ -6,7 +6,7 @@ import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
 const [staticData] = await getCollection("staticData");
-const { github, githubIconName, instagram, instagramIconName } = staticData.data;
+const { github, githubIconName, whatsapp, whatsappIconName, instagram, instagramIconName } = staticData.data;
 
 const currentPath = Astro.url.pathname;
 const routes = ["/", "/portfolio", "/about-us"];
@@ -38,6 +38,12 @@ const navItems = isActiveRoute
     <Navigation items={navItems} />
 
     <div class="flex items-center justify-between gap-5 text-xl">
+      <div
+        class="max-md:hidden flex items-center justify-center gap-5"
+        role="group"
+      >
+        <Social link={whatsapp} iconName={whatsappIconName} />
+      </div>
       <div
         class="max-md:hidden flex items-center justify-center gap-5"
         role="group"

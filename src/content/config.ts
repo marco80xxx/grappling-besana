@@ -20,6 +20,8 @@ const jsonDataCollection = defineCollection({
     linkedin: z.string().url(),
     instagram: z.string().url(),
     youtube: z.string().url(),
+    whatsapp: z.string().url().optional(),
+    whatsappIconName: z.string().optional(),
     alias: z.string(),
     contactSectionTitle: z.string(),
     contactSectionSubtitle: z.string(),
