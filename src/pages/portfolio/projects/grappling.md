@@ -2,7 +2,7 @@
 layout:  /src/layouts/ProjectLayout.astro
 title: 'Grappling'
 pubDate: 2025-09-01
-description: 'Corso di Grappling/Brazilian Jiu-jitsu'
+description: 'Corso di Grappling/Bjj'
 skills: ["standing", "Takedown"]
 image:
   url: "/images/projects/judo/grappling-besana-discipline.jpg"
