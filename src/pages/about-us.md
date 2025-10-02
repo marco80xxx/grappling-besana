@@ -13,6 +13,8 @@ La sede del team si trova presso la <a href="http://www.polisportivabesanese.it/
 
 Il nostro indirizzo: 🔗 <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4786a5508f4f018d:0xf9aef426a001ed0c?sa=X&ved=1t:8290&ictx=111" target="blank">**via Alcide de Gasperi 89, Besana in Brianza (MB)**</a>
 
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.98533586759!2d9.27184837661615!3d45.690096618337705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786a5508f4f018d%3A0xf9aef426a001ed0c!2sGrappling%20Besana!5e1!3m2!1sit!2sit!4v1759391591537!5m2!1sit!2sit" width="100%" height="600" style="border:0; border-radius:12px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
 ## La nostra idea di Team
 
 Qui a Grappling Besana, il nostro team è una vera e propria famiglia, unita dalla passione per il BJJ. La nostra filosofia si basa su un approccio che combina i fondamenti classici della disciplina con uno sguardo sempre rivolto all'evoluzione dello sport.

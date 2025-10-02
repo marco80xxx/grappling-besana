@@ -6,6 +6,7 @@ import Contact from "../components/portfolio/Contact.astro";
 import Timetable from "../components/timetable/Timetable.astro";
 import GroupPhoto from "../components/portfolio/GroupPhoto.astro";
 import ListProjects from "../components/portfolio/ListProjects.astro";
+import Where from "../components/portfolio/where.astro";
 import { getCollection } from "astro:content";
 
 const [staticData] = await getCollection("staticData");
@@ -17,8 +18,10 @@ const { pageTitle, pageDescription, OGImage } = staticData.data;
   description={pageDescription}
   ogimage={{ alt: OGImage.alt, url: OGImage.url }}
 >
+  
   <HeroIndex />
   <Timetable />
   <ListProjects />
+  <Where />
   <Contact />
 </Layout>
