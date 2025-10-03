@@ -1,1 +1,17 @@
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.98533586759!2d9.27184837661615!3d45.690096618337705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786a5508f4f018d%3A0xf9aef426a001ed0c!2sGrappling%20Besana!5e1!3m2!1sit!2sit!4v1759391591537!5m2!1sit!2sit" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+---
+import { getCollection } from "astro:content";
+
+const [staticData] = await getCollection("staticData");
+const {
+  whereTitle,
+} = staticData.data;
+---
+<section class="py-0 px-0 max-md:py-0 mb-0 scroll-m-24" id="where">
+    <h1
+        class="text-4xl font-black mb-4 leading-14 text-blacktext dark:text-white items-center justify-center text-center"
+        >
+        📍{whereTitle}
+    </h1>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.98533586759!2d9.27184837661615!3d45.690096618337705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786a5508f4f018d%3A0xf9aef426a001ed0c!2sGrappling%20Besana!5e1!3m2!1sit!2sit!4v1759391591537!5m2!1sit!2sit" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
