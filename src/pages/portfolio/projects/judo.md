@@ -2,7 +2,7 @@
 layout:  /src/layouts/ProjectLayout.astro
 title: 'Judo'
 pubDate: 2025-09-01
-description: 'Corso di Judo in collaborazione con la Besanese Judo'
+description: 'Corso di Judo a cura della Besanese Judo'
 skills: ["standing", "Takedown"]
 image:
   url: "/images/projects/judo/judo-besanese.jpg"

@@ -21,7 +21,7 @@ Filippo Poni, coach innanzitutto della Besanese Judo, ha conseguito la laurea in
 
 La preparazione settimanale prevede un allenamento suddiviso su due sessioni principali:
 - Il **lunedì** è dedicato allo sviluppo di potenza e condizionamento aerobico, mirati a migliorare la resistenza e l'esplosività. 
-- Il **venerdì**, invece, l'attenzione si sposta sulla forza e sulla potenza individualizzata, con carichi e protocolli di allenamento attentamente calibrati in base alle esigenze e ai massimali di ciascun atleta.
+- Il **mercoledì** e il **venerdì**, invece, l'attenzione si sposta sulla forza e sulla potenza individualizzata, con carichi e protocolli di allenamento attentamente calibrati in base alle esigenze e ai massimali di ciascun atleta.
 
 ## 💡 I Benefici di una adeguata preparazione
 
