@@ -26,13 +26,41 @@ const {
 <div
     class="mx-auto mb-4 mt-16 h-full w-full max-w-7xl rounded-2xl flex justify-center items-center max-md:h-auto">
         <div class="relative z-20 flex justify-center items-center w-200 mx-auto">
+            <!-- Immagine cliccabile con cursore pointer e effetto hover leggero -->
             <div
-                class="mt-3 w-full aspect-square bg-center bg-contain bg-no-repeat scale-110 transition-transform"
+                id="timetable-trigger"
+                class="mt-3 w-full aspect-square bg-center bg-contain bg-no-repeat scale-100 transition-transform cursor-pointer hover:scale-103"
                 style={`background-image: url(${timetableImage})`}
                 aria-label={timetableImage}
+                title="Clicca per ingrandire"
             ></div>
         </div>
 </div>
+
+<!-- Lightbox Overlay (inizialmente nascosto) -->
+<div 
+    id="timetable-lightbox" 
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 cursor-pointer"
+>
+    <div class="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center">
+        <!-- Pulsante di chiusura -->
+        <button 
+            id="lightbox-close" 
+            class="absolute top-4 right-4 text-white bg-black/50 hover:bg-black/80 rounded-full p-2 w-10 h-10 flex items-center justify-center text-xl font-bold transition-colors z-10"
+            aria-label="Chiudi"
+        >
+            &times;
+        </button>
+        <!-- Immagine ingrandita con bordi arrotondati -->
+        <img 
+            src={timetableImage} 
+            alt={timetableTitle} 
+            class="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-2xl cursor-default"
+            id="lightbox-img"
+        />
+    </div>
+</div>
+
 <div class="mx-auto max-w-7xl py-8">
     <div class="flex gap-4 items-center justify-center text-center">
     </div>
@@ -95,3 +123,48 @@ const {
     <slot />
   </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const trigger = document.getElementById('timetable-trigger');
+        const lightbox = document.getElementById('timetable-lightbox');
+        const closeBtn = document.getElementById('lightbox-close');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        if (trigger && lightbox && closeBtn && lightboxImg) {
+            // Apri lightbox al click sull'immagine
+            trigger.addEventListener('click', () => {
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Evita lo scroll della pagina sotto
+            });
+
+            // Funzione di chiusura
+            const closeLightbox = () => {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = '';
+            };
+
+            // Chiudi cliccando sul pulsante 'X' o sullo sfondo scuro
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Evita che il click sull'immagine la chiuda
+            lightboxImg.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // Chiudi premendo il tasto ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+        }
+    });
+</script>
