@@ -1,5 +1,8 @@
 ---
 import Button from "../ui/Button.astro";
+
+const bjjSquareUrl =
+  "https://bjjsquare.com/it/palestre/grappling-besana-besana-brianza?utm_source=grapplingbesana&utm_medium=footer";
 ---
 
 <section class="w-full border-t border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40">
@@ -13,7 +16,7 @@ import Button from "../ui/Button.astro";
       <p class="font-bold text-lg text-blacktext dark:text-white">
         Siamo presenti su
         <a
-          href="https://bjjsquare.com"
+          href={bjjSquareUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="text-mint-600 dark:text-mint-400 hover:underline"
@@ -26,7 +29,7 @@ import Button from "../ui/Button.astro";
       </p>
     </div>
     <Button
-      link="https://bjjsquare.com"
+      link={bjjSquareUrl}
       text="Iscriviti su BJJ Square"
       class="bg-none! bg-mint-500! hover:bg-mint-600! text-white! dark:text-white! shrink-0 px-4! py-2! text-sm!"
     />
