@@ -36,7 +36,8 @@ La preparazione fisica **Strength and Conditioning (S&C)** negli sport di lotta 
 ## 🗓️ Orari degli Allenamenti S&C
 
 - Lunedì - 18:30-19:30
-- Venerdì - 18:30-19:30
+- Mercoledì - 18:30-19:30
+- Venerdì - 17:30-18:30
 
 ## 🎯 Obiettivi
 
