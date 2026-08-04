@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import  SpeedInsights  from "@vercel/speed-insights/astro"
+import { getCollection } from "astro:content";
 const {
   pageTitle = "Grappling Besana - Scuola di Brazilian Jiu Jitsu a Besana in Brianza",
   description = "Benvenuti a Grappling Besana, la tua scuola di Brazilian Jiu Jitsu a Besana in Brianza. Unisciti a noi per imparare, crescere e competere in un ambiente amichevole e stimolante.",
@@ -23,6 +24,65 @@ const SEO = {
 
 
 const twitterimage = `${siteUrl}${ogimage.url}`;
+
+const [staticData] = await getCollection("staticData");
+const {
+  profileName,
+  telephone,
+  email: businessEmail,
+  instagram,
+  whatsapp,
+  streetAddress,
+  addressLocality,
+  postalCode,
+  addressRegion,
+  addressCountry,
+  geoLat,
+  geoLng,
+} = staticData.data;
+
+// Orari aggregati dalle pagine delle 3 discipline (Grappling, Judo, S&C) —
+// aggiornare qui se cambiano gli orari dei corsi.
+const openingHoursSpecification = [
+  { dayOfWeek: "Monday", opens: "12:30", closes: "13:30" },
+  { dayOfWeek: "Monday", opens: "18:30", closes: "21:00" },
+  { dayOfWeek: "Tuesday", opens: "12:30", closes: "13:30" },
+  { dayOfWeek: "Tuesday", opens: "19:30", closes: "21:00" },
+  { dayOfWeek: "Wednesday", opens: "12:30", closes: "13:30" },
+  { dayOfWeek: "Wednesday", opens: "18:30", closes: "21:00" },
+  { dayOfWeek: "Thursday", opens: "12:30", closes: "13:30" },
+  { dayOfWeek: "Thursday", opens: "19:30", closes: "21:00" },
+  { dayOfWeek: "Friday", opens: "17:30", closes: "20:00" },
+  { dayOfWeek: "Saturday", opens: "11:00", closes: "13:00" },
+].map((spec) => ({
+  "@type": "OpeningHoursSpecification",
+  ...spec,
+}));
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  name: profileName,
+  url: siteUrl,
+  image: `${siteUrl}${ogimage.url}`,
+  telephone,
+  email: businessEmail,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress,
+    addressLocality,
+    postalCode,
+    addressRegion,
+    addressCountry,
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: geoLat,
+    longitude: geoLng,
+  },
+  sameAs: [instagram, whatsapp].filter(Boolean),
+  openingHoursSpecification,
+};
 ---
 
 <html
@@ -70,7 +130,10 @@ const twitterimage = `${siteUrl}${ogimage.url}`;
 
     <!-- Sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
-    
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
   </head>
   <body class="overflow-x-hidden">
     <SpeedInsights/>
