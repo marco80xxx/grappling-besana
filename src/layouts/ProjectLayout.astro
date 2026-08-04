@@ -4,8 +4,13 @@ import DatePub from "../components/ui/DatePub.astro";
 import Heading from "../components/ui/Heading.astro";
 import NavArticle from "../components/layout/NavArticle.astro";
 import Contact from "../components/portfolio/Contact.astro";
+import Project from "../components/portfolio/Project.astro";
 const { frontmatter } = Astro.props;
 
+const allPosts = await Astro.glob("../pages/portfolio/projects/*.md");
+const otherPosts = allPosts.filter(
+  (post) => post.frontmatter.title !== frontmatter.title,
+);
 ---
 
 
@@ -42,7 +47,24 @@ const { frontmatter } = Astro.props;
       <div class="markdown " id="content">
         <slot />
       </div>
-      
+
+      {
+        otherPosts.length > 0 && (
+          <div class="flex flex-col gap-4 pt-4 border-t border-neutral-100 dark:border-white/10">
+            <Heading text="Le altre" textGradient="discipline" level={3} />
+            <div class="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
+              {otherPosts.map((post) => (
+                <Project
+                  url={post.url}
+                  title={post.frontmatter.title}
+                  description={post.frontmatter.description}
+                  image={post.frontmatter.image}
+                />
+              ))}
+            </div>
+          </div>
+        )
+      }
     </article>
     <NavArticle title={frontmatter.title} />
   </section>
