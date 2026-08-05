@@ -3,7 +3,19 @@ import Project from "./Project.astro";
 import Heading from "../ui/Heading.astro";
 import { Icon } from "astro-icon/components";
 
-const allPosts = await Astro.glob("../../pages/portfolio/projects/*.md");
+interface ProjectFrontmatter {
+  title: string;
+  description: string;
+  pubDate: string;
+  image: { url: string; alt: string };
+}
+
+const allPosts = Object.values(
+  import.meta.glob<{ frontmatter: ProjectFrontmatter; url: string }>(
+    "../../pages/portfolio/projects/*.md",
+    { eager: true },
+  ),
+);
 
 // Sort by descending date (most recent first)
 allPosts.sort(

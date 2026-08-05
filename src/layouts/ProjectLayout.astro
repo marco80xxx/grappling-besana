@@ -9,7 +9,19 @@ import { Image, getImage } from "astro:assets";
 import { getLocalImage } from "../utils/images";
 const { frontmatter } = Astro.props;
 
-const allPosts = await Astro.glob("../pages/portfolio/projects/*.md");
+interface ProjectFrontmatter {
+  title: string;
+  description: string;
+  pubDate: string;
+  image: { url: string; alt: string };
+}
+
+const allPosts = Object.values(
+  import.meta.glob<{ frontmatter: ProjectFrontmatter; url: string }>(
+    "../pages/portfolio/projects/*.md",
+    { eager: true },
+  ),
+);
 const otherPosts = allPosts.filter(
   (post) => post.frontmatter.title !== frontmatter.title,
 );
