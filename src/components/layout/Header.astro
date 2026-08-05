@@ -6,7 +6,7 @@ import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
 const [staticData] = await getCollection("staticData");
-const { github, githubIconName, whatsapp, whatsappIconName, instagram, instagramIconName } = staticData.data;
+const { whatsapp, whatsappIconName, instagram, instagramIconName } = staticData.data;
 
 const currentPath = Astro.url.pathname;
 const routes = ["/", "/portfolio", "/about-us"];

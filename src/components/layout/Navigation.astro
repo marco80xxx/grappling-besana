@@ -4,7 +4,7 @@ import Social from "../ui/Social.astro";
 import { getCollection } from "astro:content";
 
 const [staticData] = await getCollection("staticData");
-const { email, emailIconName, whatsapp, github, githubIconName, linkedin, linkedinIconName, instagram, instagramIconName } = staticData.data;
+const { email, emailIconName, whatsapp, instagram, instagramIconName } = staticData.data;
 
 const { items = [] }: { items: (keyof typeof menu)[] } = Astro.props as {
   items: (keyof typeof menu)[];
@@ -110,36 +110,6 @@ const baseClasses = {
     items.map((key: string) => {
       const item = menu[key as keyof typeof menu];
       if (!item) return null;
-
-      if ("dropdown" in item) {
-        return (
-          <div class={baseClasses.dropdown}>
-            <a
-              href={item.path}
-              class={baseClasses.link}
-              data-path={item.path}
-              aria-label={item.name}
-              aria-current={
-                item.path === Astro.url.pathname ? "page" : undefined
-              }
-            >
-              {item.name}
-            </a>
-            <div class={baseClasses.dropdownMenu}>
-              {item.dropdown.map((dropdownItem) => (
-                <a
-                  href={dropdownItem.path}
-                  class={baseClasses.dropdownItem}
-                  data-path={dropdownItem.path}
-                  aria-label={dropdownItem.name}
-                >
-                  {dropdownItem.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        );
-      }
 
       return (
         <a

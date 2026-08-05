@@ -48,6 +48,7 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.
     const lng = Number(wrapper?.dataset.lng);
 
     if (wrapper && preview && !Number.isNaN(lat) && !Number.isNaN(lng)) {
+        // @ts-expect-error - remote ESM import, no local type declarations available
         import("https://unpkg.com/leaflet@1.9.4/dist/leaflet-src.esm.js").then((L) => {
             L.Icon.Default.mergeOptions({
                 iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",

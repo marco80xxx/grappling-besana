@@ -1,8 +1,11 @@
-// src/content/config.ts
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
+import { file } from 'astro/loaders';
 
 const jsonDataCollection = defineCollection({
-  type: 'data',
+  loader: file('src/content/staticData/allStaticData.json', {
+    parser: (text) => [{ id: 'main', ...JSON.parse(text) }],
+  }),
   schema: z.object({
     //Define JSON-file structure
     profileImage: z.string(),
@@ -10,14 +13,14 @@ const jsonDataCollection = defineCollection({
     profileLink: z.string(),
     profileTitle: z.string(),
     profileName: z.string(),
-    github: z.string().url(),
+    github: z.url(),
     timetableImage: z.string(),
     timetableTitle: z.string(),
     whereTitle: z.string(),
-    email: z.string().email(),
-    instagram: z.string().url(),
-    whatsapp: z.string().url().optional(),
-    whatsappIconName: z.string().optional(),
+    email: z.email(),
+    instagram: z.url(),
+    whatsapp: z.url(),
+    whatsappIconName: z.string(),
     telephone: z.string(),
     streetAddress: z.string(),
     addressLocality: z.string(),
