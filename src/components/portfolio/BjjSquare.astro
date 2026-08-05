@@ -1,5 +1,7 @@
 ---
 import Button from "../ui/Button.astro";
+import { Image } from "astro:assets";
+import bjjSquareLogo from "../../assets/images/logo-oriz.png";
 
 const bjjSquareUrl =
   "https://bjjsquare.com/it/palestre/grappling-besana-besana-brianza?utm_source=grapplingbesana&utm_medium=footer";
@@ -10,7 +12,7 @@ const bjjSquareUrl =
     class="mx-auto max-w-xl px-8 py-16 max-sm:px-4 max-sm:py-10 flex flex-col items-center text-center gap-6"
   >
     <div class="bg-white rounded-xl px-5 py-3 shadow-sm shrink-0">
-      <img src="/images/logo-oriz.png" alt="BJJ Square" class="h-8 w-auto" />
+      <Image src={bjjSquareLogo} alt="BJJ Square" class="h-8 w-auto" />
     </div>
     <div class="max-w-md">
       <p class="font-bold text-lg text-blacktext dark:text-white">

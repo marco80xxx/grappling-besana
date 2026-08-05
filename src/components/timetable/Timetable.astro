@@ -1,5 +1,7 @@
 ---
 import { getCollection } from "astro:content";
+import { Image, getImage } from "astro:assets";
+import { getLocalImage } from "../../utils/images";
 
 const [staticData] = await getCollection("staticData");
 const {
@@ -15,6 +17,11 @@ const {
   timetableTitle,
   contactSectionButtonText,
 } = staticData.data;
+
+const timetableLocalImage = getLocalImage(timetableImage);
+const timetablePreviewSrc = timetableLocalImage
+  ? (await getImage({ src: timetableLocalImage, width: 800 })).src
+  : timetableImage;
 ---
 
 <section class="py-8 px-8 max-md:py-1 mb-4 scroll-m-16" id="timetable">
@@ -30,7 +37,7 @@ const {
             <div
                 id="timetable-trigger"
                 class="mt-3 w-full aspect-square bg-center bg-contain bg-no-repeat scale-100 transition-transform cursor-pointer transition-transform duration-600 hover:scale-103"
-                style={`background-image: url(${timetableImage})`}
+                style={`background-image: url(${timetablePreviewSrc})`}
                 aria-label={timetableImage}
                 title="Clicca per ingrandire"
             ></div>
@@ -52,12 +59,22 @@ const {
             &times;
         </button>
         <!-- Immagine ingrandita con bordi arrotondati -->
-        <img 
-            src={timetableImage} 
-            alt={timetableTitle} 
+        {timetableLocalImage ? (
+          <Image
+            src={timetableLocalImage}
+            alt={timetableTitle}
+            width={1400}
             class="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-2xl cursor-default"
             id="lightbox-img"
-        />
+          />
+        ) : (
+          <img
+              src={timetableImage}
+              alt={timetableTitle}
+              class="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-2xl cursor-default"
+              id="lightbox-img"
+          />
+        )}
     </div>
 </div>
 

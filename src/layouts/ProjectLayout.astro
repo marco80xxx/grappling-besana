@@ -5,19 +5,26 @@ import Heading from "../components/ui/Heading.astro";
 import NavArticle from "../components/layout/NavArticle.astro";
 import Contact from "../components/portfolio/Contact.astro";
 import Project from "../components/portfolio/Project.astro";
+import { Image, getImage } from "astro:assets";
+import { getLocalImage } from "../utils/images";
 const { frontmatter } = Astro.props;
 
 const allPosts = await Astro.glob("../pages/portfolio/projects/*.md");
 const otherPosts = allPosts.filter(
   (post) => post.frontmatter.title !== frontmatter.title,
 );
+
+const heroImage = frontmatter.image?.url ? getLocalImage(frontmatter.image.url) : undefined;
+const ogImage = heroImage
+  ? { url: (await getImage({ src: heroImage, width: 1200 })).src, alt: frontmatter.image.alt }
+  : frontmatter.image;
 ---
 
 
 <Layout
   pageTitle={frontmatter.title}
   description={frontmatter.description}
-  ogimage={frontmatter.image}
+  ogimage={ogImage}
 >
   <section
     class="relative mx-auto px-8 max-sm:px-4 flex flex-row justify-center gap-6"
@@ -34,12 +41,16 @@ const otherPosts = allPosts.filter(
 
       <figure>
         {
-          frontmatter.image?.url && (
-            <img
-              class="w-full rounded-xl"
-              src={frontmatter.image.url}
-              alt={frontmatter.image.alt || "Article image"}
-            />
+          heroImage ? (
+            <Image class="w-full rounded-xl" src={heroImage} width={900} alt={frontmatter.image.alt || "Article image"} />
+          ) : (
+            frontmatter.image?.url && (
+              <img
+                class="w-full rounded-xl"
+                src={frontmatter.image.url}
+                alt={frontmatter.image.alt || "Article image"}
+              />
+            )
           )
         }
       </figure>

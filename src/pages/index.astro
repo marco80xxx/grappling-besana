@@ -7,15 +7,22 @@ import ListProjects from "../components/portfolio/ListProjects.astro";
 import Where from "../components/portfolio/Where.astro";
 import BjjSquare from "../components/portfolio/BjjSquare.astro";
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
+import { getLocalImage } from "../utils/images";
 
 const [staticData] = await getCollection("staticData");
 const { pageTitle, pageDescription, OGImage } = staticData.data;
+
+const ogLocalImage = getLocalImage(OGImage.url);
+const ogImageUrl = ogLocalImage
+  ? (await getImage({ src: ogLocalImage, width: 1200 })).src
+  : OGImage.url;
 ---
 
 <Layout
   pageTitle={pageTitle}
   description={pageDescription}
-  ogimage={{ alt: OGImage.alt, url: OGImage.url }}
+  ogimage={{ alt: OGImage.alt, url: ogImageUrl }}
 >
   
   <HeroIndex />

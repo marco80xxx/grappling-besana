@@ -13,7 +13,7 @@ Il corso di **Grappling** (o Brazilian Jiu-jitsu) è al cuore della nostra scuol
 
 ## 👨‍🏫 Il Coach di Grappling
 
-![orari grappling bjj judo s&c Besana Brianza](/images/marco.png "marco beccari bjj grappling besana team jiu-jitsu")
+![orari grappling bjj judo s&c Besana Brianza](../../../assets/images/marco.png "marco beccari bjj grappling besana team jiu-jitsu")
 
 
 Il coach di Grappling Besana è <a href="https://www.instagram.com/bjj_marcobex/" target="blank">Marco Beccari</a>, cintura nera col grado di **Maestro** nel Brazilian Jiu-Jitsu, riconosciuto da FIJLKAM/CONI e Unione Italiana Jiu-jitsu. Ha conseguito la cintura nera nel giugno 2022 in una delle più blasonate accademie della Brianza. Pratica BJJ dal 2014 ed è anche una cintura nera di Judo, che ha praticato per molti anni fin dalle scuole medie.

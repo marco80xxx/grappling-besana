@@ -91,7 +91,7 @@ Unisciti a noi e scopri il piacere di imparare e crescere insieme, in un team ch
 
 ## I nostri insegnanti
 
-![orari grappling bjj judo s&c Besana Brianza](/images/marco.png "marco beccari bjj grappling besana team jiu-jitsu")
+![orari grappling bjj judo s&c Besana Brianza](../assets/images/marco.png "marco beccari bjj grappling besana team jiu-jitsu")
 
 
 Il coach di Grappling Besana è <a href="https://www.instagram.com/bjj_marcobex/" target="blank">Marco Beccari</a>, cintura nera col grado di **Maestro** nel Brazilian Jiu-Jitsu, riconosciuto da FIJLKAM/CONI e Unione Italiana Jiu-jitsu. Ha conseguito la cintura nera nel giugno 2022 in una delle più blasonate accademie della Brianza. Pratica BJJ dal 2014 ed è anche una cintura nera di Judo, che ha praticato per molti anni fin dalle scuole medie.
@@ -113,11 +113,11 @@ All'interno del team sono presenti numerose cinture di alto grado tra Marroni e 
 
 ## 🕒 Orari 2025/2026
 
-![orari grappling bjj judo s&c Besana Brianza](/images/timetable.png "Orari Stagione 2025/26 Grappling Besana")
+![orari grappling bjj judo s&c Besana Brianza](../assets/images/timetable.png "Orari Stagione 2025/26 Grappling Besana")
 
 ## 🔍 Anteprima Orari 2026/2027
 
-![orari grappling bjj judo s&c Besana Brianza](/images/Orari-Classi-Grappling-Besana-2026-2027.png "Preview Orari Stagione 2026/27 Grappling Besana")
+![orari grappling bjj judo s&c Besana Brianza](../assets/images/Orari-Classi-Grappling-Besana-2026-2027.png "Preview Orari Stagione 2026/27 Grappling Besana")
 
 
 ## Let's Do Amazing Things 🚀 
