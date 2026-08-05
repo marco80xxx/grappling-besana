@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import { getCollection } from "astro:content";
+
+const [staticData] = await getCollection("staticData");
+const { email, emailIconName } = staticData.data;
+---
+
+<Layout
+  pageTitle="Pagina non trovata | Grappling Besana"
+  description="La pagina che cerchi non esiste o è stata spostata."
+  noindex
+>
+  <section
+    class="relative flex min-h-[70vh] flex-col items-center justify-center gap-6 px-8 py-24 text-center max-sm:px-4"
+  >
+    <div
+      class="absolute left-1/2 top-1/2 -z-10 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(13,188,130,0.35)_0,rgba(13,188,130,0)_70%)] blur-3xl"
+    >
+    </div>
+
+    <span class="text-7xl" aria-hidden="true">🥋</span>
+
+    <h1
+      class="bg-linear-to-r from-riptide-500 to-mint-500 dark:from-riptide-300 dark:to-mint-200 bg-clip-text text-8xl font-black text-transparent max-sm:text-6xl"
+    >
+      404
+    </h1>
+
+    <p class="max-w-md text-lg font-medium text-blacktext dark:text-gray-200">
+      Questa pagina non è mai arrivata in guardia: non esiste o è stata spostata.
+    </p>
+
+    <div class="mt-2 flex gap-4 max-sm:flex-col max-sm:items-center">
+      <Button link="/" text="Torna alla Home" iconName="gb-mini-logo" />
+      <Button link={"mailto:" + email} text="Contattaci" iconName={emailIconName} variant="dark" />
+    </div>
+  </section>
+</Layout>
