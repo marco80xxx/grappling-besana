@@ -3,6 +3,7 @@ import Layout from "./Layout.astro";
 import Heading from "../components/ui/Heading.astro";
 import NavArticle from "../components/layout/NavArticle.astro";
 import Contact from "../components/portfolio/Contact.astro";
+import ShareButton from "../components/ui/ShareButton.astro";
 const { frontmatter } = Astro.props;
 ---
 
@@ -27,6 +28,10 @@ const { frontmatter } = Astro.props;
     <article
       class="flex flex-col gap-8 max-w-3xl max-md:w-full pb-10 pt-8 mt-8 max-sm:mt-0 px-14 max-md:px-10 max-sm:px-6 dark:bg-transparent bg-white dark:border-0 border border-neutral-100 rounded-2xl"
     >
+      <div class="flex justify-end">
+        <ShareButton title={frontmatter.title} />
+      </div>
+
       <div class="w-full h-auto mb-4 mx-auto" id="#">
         <div
           class="transition-all justify-center w-full gap-8 max-md:gap-3 max-lg:gap-2 flex flex-col items-center z-0 relative dark:from-mint-950 dark:to-zinc-950"

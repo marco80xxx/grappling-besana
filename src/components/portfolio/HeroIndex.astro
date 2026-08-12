@@ -1,6 +1,7 @@
 ---
 import Button from "../ui/Button.astro";
 import Heading from "../ui/Heading.astro";
+import ShareButton from "../ui/ShareButton.astro";
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
@@ -56,14 +57,17 @@ const {
       <div
         class="flex h-full w-7/12 flex-col justify-center gap-4 p-4 max-md:w-full max-md:gap-2"
       >
-        <span
-          class="relative inline-flex items-center text-xs font-semibold leading-4 dark:text-white text-blacktext max-md:font-medium max-sm:justify-center"
-        >
+        <div class="flex items-center justify-between gap-4 max-sm:justify-center max-sm:flex-col">
           <span
-            class="before:mr-2 before:block before:h-1.5 before:w-1.5 before:rounded-full before:bg-mint-400 before:shadow-[0px_0px_0px_3px_rgba(13,188,130,0.5)] before:animate-pulse before:content-['']"
-          ></span>
-          Unisciti a noi!
-        </span>
+            class="relative inline-flex items-center text-xs font-semibold leading-4 dark:text-white text-blacktext max-md:font-medium"
+          >
+            <span
+              class="before:mr-2 before:block before:h-1.5 before:w-1.5 before:rounded-full before:bg-mint-400 before:shadow-[0px_0px_0px_3px_rgba(13,188,130,0.5)] before:animate-pulse before:content-['']"
+            ></span>
+            Unisciti a noi!
+          </span>
+          <ShareButton title={profileName} />
+        </div>
 
         <h1
           class="text-4xl font-bold leading-8 text-blacktext dark:text-white max-xl:text-3xl max-lg:text-2xl max-sm:text-center"
