@@ -5,6 +5,7 @@ import Heading from "../components/ui/Heading.astro";
 import NavArticle from "../components/layout/NavArticle.astro";
 import Contact from "../components/portfolio/Contact.astro";
 import Project from "../components/portfolio/Project.astro";
+import ShareButton from "../components/ui/ShareButton.astro";
 import { Image, getImage } from "astro:assets";
 import { getLocalImage } from "../utils/images";
 const { frontmatter } = Astro.props;
@@ -46,7 +47,10 @@ const ogImage = heroImage
       class="flex flex-col gap-8 max-w-3xl max-md:w-full pb-10 pt-8 mt-8 px-14 max-md:px-10 max-sm:px-4  dark:bg-transparent bg-white dark:border-0 border border-neutral-100 rounded-2xl" 
     >
       <header class="flex flex-col gap-4" id="start">
-        <DatePub date={frontmatter.pubDate} />
+        <div class="flex items-center justify-between gap-4 flex-wrap">
+          <DatePub date={frontmatter.pubDate} />
+          <ShareButton title={frontmatter.title} />
+        </div>
 
         <Heading text={frontmatter.title} />
       </header>
