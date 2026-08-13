@@ -109,6 +109,17 @@ Tra i risultati agonistici più significativi:
 <li>2016 Lisbona: 🥈 Argento Europeo Master 2 IBJJF - Cinture Blu</li>
 </ul>
 
+![nabil ben leghlid coach grappling besana besana brianza](../assets/images/nabil.png "nabil ben leghlid bjj grappling besana team jiu-jitsu")
+
+**Nabil Ben Leghlid**, cintura marrone di Brazilian Jiu-Jitsu, si occupa dei corsi di Grappling del lunedì e venerdì alle 12:30. Pratica BJJ dal 2019 e tra le esperienze più significative ha trascorso un anno ad allenarsi alla Sydney West Martial Arts, palestra interamente dedicata al no-gi grappling, sotto la guida del coach Luke Martin e a fianco di numerosi veterani ADCC — un'occasione che gli ha permesso di osservare da vicino il metodo di allenamento di professionisti del calibro di Josh Saunders, abituati a competere ad appuntamenti come ADCC Worlds e WNO.
+
+Tra i risultati di gara più significativi:
+<ul>
+<li>2025 Milano: 🥈 Argento Milano Challenge UIJJ - Adulti Cintura Viola</li>
+<li>2025: 🥇 Oro Campionati Italiani - Adulti Cintura Viola</li>
+<li>2025 Milano: 🥈 Argento Grappling Industries - Categoria Cinture Nere, Marroni e Viola</li>
+</ul>
+
 All'interno del team sono presenti numerose cinture di alto grado tra Marroni e Viola che supportano l'attività di insegnamento nello spirito della collaborazione reciproca che ci contraddistingue!
 
 ## 🕒 Orari 2025/2026
