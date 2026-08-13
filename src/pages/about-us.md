@@ -124,13 +124,9 @@ Tra i risultati di gara più significativi:
 
 All'interno del team sono presenti numerose cinture di alto grado tra Marroni e Viola che supportano l'attività di insegnamento nello spirito della collaborazione reciproca che ci contraddistingue!
 
-## 🕒 Orari 2025/2026
+## 🕒 Orari 2026/27
 
-![orari grappling bjj judo s&c Besana Brianza](../assets/images/timetable.png "Orari Stagione 2025/26 Grappling Besana")
-
-## 🔍 Anteprima Orari 2026/2027
-
-![orari grappling bjj judo s&c Besana Brianza](../assets/images/Orari-Classi-Grappling-Besana-2026-2027.png "Preview Orari Stagione 2026/27 Grappling Besana")
+![orari grappling bjj judo s&c Besana Brianza](../assets/images/Orari-Classi-Grappling-Besana-2026-2027.png "Orari Stagione 2026/27 Grappling Besana")
 
 
 ## Let's Do Amazing Things 🚀 
