@@ -15,9 +15,9 @@ Il nostro indirizzo: 🔗 <a href="https://www.google.com/maps/place//data=!4m2!
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-<div id="about-map-wrapper" class="relative w-full h-[600px] rounded-xl overflow-hidden bg-neutral-100 dark:bg-zinc-900" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.98533586759!2d9.27184837661615!3d45.690096618337705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786a5508f4f018d%3A0xf9aef426a001ed0c!2sGrappling%20Besana!5e1!3m2!1sit!2sit!4v1759391591537!5m2!1sit!2sit" data-lat="45.690096618337705" data-lng="9.27184837661615">
+<div id="about-map-wrapper" class="relative isolate w-full h-[600px] rounded-xl overflow-hidden bg-neutral-100 dark:bg-zinc-900" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.98533586759!2d9.27184837661615!3d45.690096618337705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786a5508f4f018d%3A0xf9aef426a001ed0c!2sGrappling%20Besana!5e1!3m2!1sit!2sit!4v1759391591537!5m2!1sit!2sit" data-lat="45.690096618337705" data-lng="9.27184837661615">
   <div id="about-map-preview" class="absolute inset-0"></div>
-  <button id="about-map-load-btn" type="button" aria-label="Apri la mappa interattiva" class="group absolute inset-0 z-[1000] flex w-full h-full items-center justify-center cursor-pointer bg-black/10 hover:bg-black/20 transition-colors">
+  <button id="about-map-load-btn" type="button" aria-label="Apri la mappa interattiva" class="group absolute inset-0 z-10 flex w-full h-full items-center justify-center cursor-pointer bg-black/10 hover:bg-black/20 transition-colors">
     <span class="inline-flex items-center gap-2 rounded-full bg-mint-500 group-hover:bg-mint-600 text-white font-medium px-6 py-3 shadow-lg transition-colors">Apri la mappa interattiva</span>
   </button>
 </div>

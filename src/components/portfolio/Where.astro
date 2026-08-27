@@ -21,7 +21,7 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.
 
     <div
         id="map-wrapper"
-        class="relative w-full h-[450px] bg-neutral-100 dark:bg-zinc-900 overflow-hidden"
+        class="relative isolate w-full h-[450px] bg-neutral-100 dark:bg-zinc-900 overflow-hidden"
         data-map-src={mapEmbedUrl}
         data-lat={geoLat}
         data-lng={geoLng}
@@ -31,7 +31,7 @@ const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.
             id="map-load-btn"
             type="button"
             aria-label="Apri la mappa interattiva"
-            class="group absolute inset-0 z-[1000] flex w-full h-full items-center justify-center cursor-pointer bg-black/10 hover:bg-black/20 transition-colors"
+            class="group absolute inset-0 z-10 flex w-full h-full items-center justify-center cursor-pointer bg-black/10 hover:bg-black/20 transition-colors"
         >
             <span
                 class="inline-flex items-center gap-2 rounded-full bg-mint-500 group-hover:bg-mint-600 text-white font-medium px-6 py-3 shadow-lg transition-colors"
