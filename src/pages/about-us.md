@@ -31,10 +31,14 @@ Il nostro indirizzo: 🔗 <a href="https://www.google.com/maps/place//data=!4m2!
 
     if (wrapper && preview && !Number.isNaN(lat) && !Number.isNaN(lng)) {
       import("https://unpkg.com/leaflet@1.9.4/dist/leaflet-src.esm.js").then((L) => {
-        L.Icon.Default.mergeOptions({
+        const markerIcon = L.icon({
           iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
           iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
           shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
         });
 
         const map = L.map(preview, {
@@ -53,7 +57,7 @@ Il nostro indirizzo: 🔗 <a href="https://www.google.com/maps/place//data=!4m2!
           attribution: "&copy; OpenStreetMap contributors",
         }).addTo(map);
 
-        L.marker([lat, lng]).addTo(map);
+        L.marker([lat, lng], { icon: markerIcon }).addTo(map);
       });
     }
 
