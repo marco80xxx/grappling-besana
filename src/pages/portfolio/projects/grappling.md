@@ -11,7 +11,7 @@ image:
 
 Il corso di **Grappling** (o Brazilian Jiu-jitsu) è al cuore della nostra scuola. I corsi sono tenuti da <a href="https://www.instagram.com/bjj_marcobex/" target="blank">Marco Beccari</a>, cintura nera col grado di **Maestro** nel Brazilian Jiu-Jitsu, riconosciuto da FIJLKAM/CONI e Unione Italiana Jiu-jitsu.
 
-## 👨‍🏫 Il Coach di Grappling
+## 👨‍🏫 I Coach di Grappling
 
 ![orari grappling bjj judo s&c Besana Brianza](../../../assets/images/marco.png "marco beccari bjj grappling besana team jiu-jitsu")
 
