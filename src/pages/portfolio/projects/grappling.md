@@ -5,7 +5,7 @@ pubDate: 2025-09-01
 description: 'Corso di Grappling e Brazilian Jiujitsu'
 skills: ["standing", "Takedown"]
 image:
-  url: "/images/projects/judo/grappling-besana-discipline.jpg"
+  url: "/images/projects/judo/grappling-card-image.jpg"
   alt: "grappling besana discipline"
 --- 
 
