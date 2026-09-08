@@ -55,6 +55,10 @@ const mapsQuery = encodeURIComponent(
 );
 const mapsLink = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
 
+const whatsappBase = whatsapp.split("?")[0];
+const bookingMessage = `Ciao! Vorrei prenotare un posto per il seminario "${title}"${guest ? ` con ${guest}` : ""} di ${formatEventDate(startDate)}.`;
+const whatsappBookingLink = `${whatsappBase}?text=${encodeURIComponent(bookingMessage)}`;
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Event",
@@ -281,7 +285,7 @@ const infoRows = [
             </p>
             <div class="flex flex-wrap gap-4">
               <Button
-                link={whatsapp}
+                link={whatsappBookingLink}
                 text="Prenota su WhatsApp"
                 iconName="whatsapp"
                 isExternal
