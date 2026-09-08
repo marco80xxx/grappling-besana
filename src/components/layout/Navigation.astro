@@ -15,12 +15,13 @@ const menu = {
   home: { name: "Home", path: "/#home" },
   orari: { name: "Orari", path: "/#timetable" },
   projects: { name: "Discipline", path: "/#projects" },
+  eventi: { name: "Eventi", path: "/eventi" },
   where: { name: "Dove Siamo", path: "/#where" },
 };
 
 // Common base classes
 const baseClasses = {
-  nav: "nav-links flex w-full justify-center gap-6 max-md:gap-3 max-md:py-6",
+  nav: "nav-links flex w-full justify-center gap-6 max-lg:gap-4 max-md:gap-3 max-md:py-6",
   link: "px-2 py-2 transition-all hover:text-mint-300 max-md:mx-auto max-md:w-full max-md:px-6 max-md:py-2 ",
   socialContainer: "flex items-center justify-center gap-5 md:hidden",
   dropdown: "relative group flex items-center",
@@ -66,7 +67,16 @@ const baseClasses = {
 
       document.querySelectorAll("nav a").forEach((link) => {
         const path = link.getAttribute("data-path");
-        toggleLinkClasses(link, path === currentPath || path === currentHash);
+        // Una voce tipo "/eventi" resta attiva anche su "/eventi/nome-evento"
+        const isSection =
+          !!path &&
+          !path.includes("#") &&
+          path !== "/" &&
+          currentPath.startsWith(`${path}/`);
+        toggleLinkClasses(
+          link,
+          path === currentPath || path === currentHash || isSection,
+        );
       });
     }
 
@@ -117,7 +127,14 @@ const baseClasses = {
           class={baseClasses.link}
           data-path={item.path}
           aria-label={item.name}
-          aria-current={item.path === Astro.url.pathname ? "page" : undefined}
+          aria-current={
+            item.path === Astro.url.pathname ||
+            (!item.path.includes("#") &&
+              item.path !== "/" &&
+              Astro.url.pathname.startsWith(`${item.path}/`))
+              ? "page"
+              : undefined
+          }
         >
           {item.name}
         </a>

@@ -1,0 +1,25 @@
+---
+import EventLayout from "../../layouts/EventLayout.astro";
+import { getEventi, isPastEvent } from "../../utils/eventi";
+import { render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async () => {
+  const { all } = await getEventi();
+
+  return all.map((evento) => ({
+    params: { slug: evento.id },
+    props: {
+      evento,
+      others: all.filter((altro) => altro.id !== evento.id),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { evento, others } = Astro.props;
+const { Content } = await render(evento);
+---
+
+<EventLayout evento={evento} past={isPastEvent(evento)} others={others}>
+  <Content />
+</EventLayout>

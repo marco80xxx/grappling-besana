@@ -25,6 +25,9 @@ const SEO = {
 
 
 const twitterimage = `${siteUrl}${ogimage.url}`;
+// URL canonica della pagina corrente (Astro.site ha lo slash finale:
+// concatenarla a pathname produceva "https://grapplingbesana.com//pagina")
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? siteUrl).href;
 
 const [staticData] = await getCollection("staticData");
 const {
@@ -107,13 +110,13 @@ const structuredData = {
     <meta name="description" content={description} />
     <meta name="author" content={SEO.author} />
     <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
-    <link rel="canonical" href={`${Astro.site}${Astro.url.pathname}`}>
+    <link rel="canonical" href={canonicalUrl}>
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={twitterimage} />
     <meta property="og:image:alt" content={ogimage.alt} />
-    <meta property="og:url" content={SEO.url} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SEO.sitename} />
     <meta property="og:locale" content={SEO.locale} />
@@ -134,6 +137,9 @@ const structuredData = {
 
     <!-- Structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <!-- Meta/structured data aggiuntivi iniettati dalle singole pagine -->
+    <slot name="head" />
 
   </head>
   <body class="overflow-x-hidden">

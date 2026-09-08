@@ -1,0 +1,139 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Heading from "../../components/ui/Heading.astro";
+import Contact from "../../components/portfolio/Contact.astro";
+import Button from "../../components/ui/Button.astro";
+import EventCard from "../../components/eventi/EventCard.astro";
+import { getEventi } from "../../utils/eventi";
+import { getLocalImage } from "../../utils/images";
+import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
+
+const { upcoming, past } = await getEventi();
+
+const [staticData] = await getCollection("staticData");
+const { instagram, whatsapp, OGImage } = staticData.data;
+
+// OG image: la locandina del primo evento in arrivo, altrimenti il default.
+const ogSource = upcoming[0]?.data.image ?? OGImage;
+const ogLocal = getLocalImage(ogSource.url);
+const ogUrl = ogLocal
+  ? (await getImage({ src: ogLocal, width: 1200 })).src
+  : ogSource.url;
+
+const upcomingGridClass =
+  upcoming.length === 1
+    ? "mx-auto max-w-md"
+    : upcoming.length === 2
+      ? "mx-auto max-w-4xl grid grid-cols-2 max-md:grid-cols-1 gap-5"
+      : "mx-auto max-w-7xl grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-5";
+---
+
+<Layout
+  pageTitle="Eventi e Seminari | Grappling Besana"
+  description="Seminari, stage e open day di Grappling Besana: gli eventi in arrivo sul nostro tatami e l'archivio di quelli passati."
+  ogimage={{ url: ogUrl, alt: ogSource.alt }}
+>
+  <section class="scroll-m-16 max-2xl:px-8 pt-10 pb-6" id="eventi">
+    <div class="mx-auto max-w-7xl text-center">
+      <Heading text="I nostri" textGradient="Eventi" level={1} />
+      <p
+        class="mx-auto max-w-2xl text-lg max-xl:text-base dark:text-gray-200 text-blacktext my-6 leading-7 font-medium"
+      >
+        Seminari con ospiti, stage e open day: le occasioni in cui il tatami di
+        Besana si apre a chi arriva da fuori e a chi vuole mettere le mani su
+        qualcosa di nuovo. <b
+          class="bg-linear-to-r from-riptide-500 to-mint-500 dark:from-riptide-300 dark:to-mint-200 text-transparent bg-clip-text"
+          >Le date si prenotano: i posti sono sempre limitati.</b
+        >
+      </p>
+    </div>
+  </section>
+
+  <section class="max-2xl:px-8 pb-16" id="in-arrivo" aria-labelledby="titolo-in-arrivo">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex flex-col items-center text-center gap-2 mb-8">
+        <span id="titolo-in-arrivo">
+          <Heading text="In" textGradient="arrivo" level={2} />
+        </span>
+        {
+          upcoming.length > 0 && (
+            <p class="text-base font-semibold text-blacktext/70 dark:text-gray-300">
+              {upcoming.length === 1
+                ? "1 evento in programma"
+                : `${upcoming.length} eventi in programma`}
+            </p>
+          )
+        }
+      </div>
+
+      {
+        upcoming.length > 0 ? (
+          <div class={upcomingGridClass}>
+            {upcoming.map((evento) => (
+              <EventCard
+                url={`/eventi/${evento.id}/`}
+                title={evento.data.title}
+                description={evento.data.description}
+                startDate={evento.data.startDate}
+                image={evento.data.image}
+                guest={evento.data.guest}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="mx-auto max-w-2xl rounded-3xl border border-neutral-100 dark:border-white/10 bg-white dark:bg-transparent p-8 text-center">
+            <p class="text-lg font-semibold text-blacktext dark:text-gray-200">
+              Nessun evento in programma in questo momento.
+            </p>
+            <p class="text-base mt-2 mb-6 text-blacktext/70 dark:text-gray-400">
+              I seminari li annunciamo prima su Instagram: seguici per non
+              perdere la prossima data.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center">
+              <Button link={instagram} text="Seguici su Instagram" iconName="instagram" isExternal />
+              <Button link={whatsapp} text="Scrivici su WhatsApp" iconName="whatsapp" isExternal />
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  {
+    past.length > 0 && (
+      <section
+        class="max-2xl:px-8 pb-24 border-t border-neutral-100 dark:border-white/10 pt-16"
+        id="archivio"
+        aria-labelledby="titolo-archivio"
+      >
+        <div class="mx-auto max-w-7xl">
+          <div class="flex flex-col items-center text-center gap-2 mb-8">
+            <span id="titolo-archivio">
+              <Heading text="Già" textGradient="passati" level={2} />
+            </span>
+            <p class="text-base font-semibold text-blacktext/70 dark:text-gray-300">
+              L'archivio di chi è già salito sul nostro tatami.
+            </p>
+          </div>
+
+          <div class="mx-auto max-w-7xl grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-5">
+            {past.map((evento) => (
+              <EventCard
+                url={`/eventi/${evento.id}/`}
+                title={evento.data.title}
+                description={evento.data.description}
+                startDate={evento.data.startDate}
+                image={evento.data.image}
+                guest={evento.data.guest}
+                past
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <Contact />
+</Layout>

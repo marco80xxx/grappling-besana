@@ -1,0 +1,114 @@
+---
+import { Image } from "astro:assets";
+import { getLocalImage } from "../../utils/images";
+import { formatEventDateShort } from "../../utils/eventi";
+
+interface Props {
+  url: string;
+  title: string;
+  description: string;
+  startDate: Date;
+  image: { url: string; alt: string };
+  guest?: string;
+  past?: boolean;
+}
+
+const {
+  url,
+  title,
+  description,
+  startDate,
+  image,
+  guest,
+  past = false,
+} = Astro.props;
+
+const localImage = getLocalImage(image.url);
+---
+
+<a
+  href={url}
+  class:list={[
+    "group/card w-full h-full transition-all duration-300 ease-in-out rounded-3xl bg-linear-to-br",
+    past
+      ? "from-neutral-100/60 to-neutral-200/20 dark:from-zinc-900 dark:to-zinc-800/20 hover:scale-[1.02]"
+      : "from-mint-50/50 to-mint-300/10 dark:from-zinc-800 dark:to-mint-800/10 hover:scale-105",
+  ]}
+  aria-label={past ? `${title} — evento concluso` : title}
+>
+  <article
+    class="group h-full gap-4 p-4 max-md:p-6 flex flex-col justify-start items-center cursor-pointer transition-all duration-200 ease-in-out rounded-3xl bg-transparent backdrop-blur-lg hover:backdrop-blur-none overflow-hidden hover:shadow-[0_10px_10px_rgba(0,0,0,0.05)] dark:border-0 dark:hover:shadow-[0_10px_10px_rgba(13,188,130,0.05)]"
+  >
+    <div class="relative overflow-hidden rounded-xl w-full">
+      {
+        localImage ? (
+          <Image
+            class:list={[
+              "w-full h-auto rounded-xl transition-all duration-300 ease-in-out group-hover:scale-105",
+              past &&
+                "grayscale-[80%] opacity-80 group-hover/card:grayscale-0 group-hover/card:opacity-100",
+            ]}
+            src={localImage}
+            width={600}
+            alt={image.alt}
+          />
+        ) : (
+          <img
+            class="w-full h-auto rounded-xl"
+            src={image.url}
+            alt={image.alt}
+          />
+        )
+      }
+
+      <span
+        class:list={[
+          "absolute top-3 left-3 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide backdrop-blur-md",
+          past ? "bg-black/70 text-neutral-200" : "bg-mint-500/90 text-white",
+        ]}
+      >
+        {formatEventDateShort(startDate)}
+      </span>
+
+      {
+        past && (
+          <span class="absolute top-3 right-3 rounded-full bg-black/70 px-3 py-1 text-xs font-bold uppercase tracking-wide text-neutral-300 backdrop-blur-md">
+            Concluso
+          </span>
+        )
+      }
+    </div>
+
+    <div class="flex flex-col p-2 w-full">
+      <div class="flex flex-col gap-3 w-full">
+        <h3
+          class:list={[
+            "text-3xl max-xl:text-2xl font-bold",
+            past
+              ? "text-blacktext/70 dark:text-zinc-400"
+              : "text-blacktext dark:text-mint-50",
+          ]}
+        >
+          {title}
+        </h3>
+        {
+          guest && (
+            <p class="text-base font-semibold text-riptide-600 dark:text-riptide-300">
+              {guest}
+            </p>
+          )
+        }
+        <p
+          class:list={[
+            "text-lg max-xl:text-base w-full my-2 leading-6 font-medium",
+            past
+              ? "text-blacktext/60 dark:text-gray-400"
+              : "text-blacktext dark:text-gray-200",
+          ]}
+        >
+          {description}
+        </p>
+      </div>
+    </div>
+  </article>
+</a>

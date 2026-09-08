@@ -1,0 +1,321 @@
+---
+import Layout from "./Layout.astro";
+import Heading from "../components/ui/Heading.astro";
+import ShareButton from "../components/ui/ShareButton.astro";
+import Button from "../components/ui/Button.astro";
+import Contact from "../components/portfolio/Contact.astro";
+import EventCard from "../components/eventi/EventCard.astro";
+import { Image, getImage } from "astro:assets";
+import { getCollection } from "astro:content";
+import { getLocalImage } from "../utils/images";
+import {
+  formatEventDate,
+  formatEventTime,
+  type Evento,
+} from "../utils/eventi";
+
+interface Props {
+  evento: Evento;
+  past: boolean;
+  others: Evento[];
+}
+
+const { evento, past, others } = Astro.props;
+const {
+  title,
+  subtitle,
+  description,
+  startDate,
+  endDate,
+  guest,
+  guestFrom,
+  guestCredentials,
+  venue,
+  schedule,
+  bookingRequired,
+  bookingNote,
+  notice,
+  image,
+  poster,
+} = evento.data;
+
+const [staticData] = await getCollection("staticData");
+const { whatsapp, telephone, email, profileName, addressCountry } =
+  staticData.data;
+
+const heroSource = poster ?? image;
+const heroImage = getLocalImage(heroSource.url);
+const ogLocal = getLocalImage(image.url);
+const ogUrl = ogLocal
+  ? (await getImage({ src: ogLocal, width: 1200 })).src
+  : image.url;
+
+const mapsQuery = encodeURIComponent(
+  `${venue.name}, ${venue.streetAddress}, ${venue.addressLocality}`,
+);
+const mapsLink = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: title,
+  description,
+  startDate: startDate.toISOString(),
+  ...(endDate ? { endDate: endDate.toISOString() } : {}),
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  image: new URL(ogUrl, Astro.site).href,
+  location: {
+    "@type": "Place",
+    name: venue.name,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: venue.streetAddress,
+      addressLocality: venue.addressLocality,
+      ...(venue.postalCode ? { postalCode: venue.postalCode } : {}),
+      ...(venue.addressRegion ? { addressRegion: venue.addressRegion } : {}),
+      addressCountry,
+    },
+  },
+  organizer: {
+    "@type": "SportsOrganization",
+    name: profileName,
+    url: Astro.site?.href,
+    telephone,
+    email,
+  },
+  ...(guest
+    ? { performer: { "@type": "Person", name: guest } }
+    : {}),
+};
+
+const infoRows = [
+  { label: "Data", value: formatEventDate(startDate) },
+  {
+    label: "Orario",
+    value: endDate
+      ? `${formatEventTime(startDate)} – ${formatEventTime(endDate)}`
+      : formatEventTime(startDate),
+  },
+  ...(guest
+    ? [
+        {
+          label: "Ospite",
+          value: [guest, guestFrom, guestCredentials]
+            .filter(Boolean)
+            .join(" · "),
+        },
+      ]
+    : []),
+  {
+    label: "Sede",
+    value: `${venue.name} — ${venue.streetAddress}, ${venue.addressLocality}${
+      venue.addressRegion ? ` (${venue.addressRegion})` : ""
+    }`,
+  },
+];
+---
+
+<Layout
+  pageTitle={`${title} | Grappling Besana`}
+  description={description}
+  ogimage={{ url: ogUrl, alt: image.alt }}
+>
+  <script
+    is:inline
+    type="application/ld+json"
+    slot="head"
+    set:html={JSON.stringify(structuredData)}
+  />
+
+  <section
+    class="relative mx-auto px-8 max-sm:px-4 flex flex-row justify-center gap-6"
+  >
+    <article
+      class="flex flex-col gap-8 max-w-3xl max-md:w-full pb-10 pt-8 mt-8 px-14 max-md:px-10 max-sm:px-4 dark:bg-transparent bg-white dark:border-0 border border-neutral-100 rounded-2xl"
+    >
+      <header class="flex flex-col gap-4" id="start">
+        <div class="flex items-center justify-between gap-4 flex-wrap">
+          <div class="flex items-center gap-3 flex-wrap">
+            <span
+              class:list={[
+                "rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide",
+                past
+                  ? "bg-neutral-200 text-blacktext/70 dark:bg-zinc-800 dark:text-zinc-300"
+                  : "bg-mint-500 text-white",
+              ]}
+            >
+              {past ? "Evento concluso" : "In arrivo"}
+            </span>
+            <time
+              datetime={startDate.toISOString()}
+              class="text-sm font-semibold text-blacktext dark:text-riptide-50"
+            >
+              {formatEventDate(startDate)}
+            </time>
+          </div>
+          <ShareButton title={title} />
+        </div>
+
+        <Heading text={title} level={1} />
+
+        {
+          subtitle && (
+            <p class="text-xl max-md:text-lg font-semibold text-riptide-600 dark:text-riptide-300">
+              {subtitle}
+            </p>
+          )
+        }
+      </header>
+
+      {
+        heroImage && (
+          <figure class="m-0">
+            <Image
+              class="w-full rounded-xl"
+              src={heroImage}
+              width={900}
+              alt={heroSource.alt}
+            />
+          </figure>
+        )
+      }
+
+      {
+        past && (
+          <p class="rounded-xl border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-white/5 px-5 py-4 text-base font-semibold text-blacktext/80 dark:text-gray-300">
+            Questo evento si è già svolto. Trovi i prossimi nella
+            <a
+              href="/eventi"
+              class="text-mint-600 dark:text-mint-400 underline decoration-dotted"
+              >pagina Eventi</a
+            >.
+          </p>
+        )
+      }
+
+      {
+        notice && !past && (
+          <p class="rounded-xl border-l-4 border-mint-500 bg-mint-50 dark:bg-mint-950/40 px-5 py-4 text-base font-semibold text-blacktext dark:text-mint-50">
+            <span class="mr-1">⚠️</span>
+            {notice}
+          </p>
+        )
+      }
+
+      <dl
+        class="grid grid-cols-1 gap-0 rounded-2xl border border-neutral-100 dark:border-white/10 overflow-hidden"
+      >
+        {
+          infoRows.map((row) => (
+            <div class="grid grid-cols-[7rem_1fr] max-sm:grid-cols-1 gap-2 px-5 py-4 border-b last:border-b-0 border-neutral-100 dark:border-white/10">
+              <dt class="text-xs font-bold uppercase tracking-wide text-blacktext/60 dark:text-zinc-400 self-center">
+                {row.label}
+              </dt>
+              <dd class="m-0 text-base font-semibold text-blacktext dark:text-gray-200">
+                {row.value}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <p class="m-0">
+        <a
+          href={mapsLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm font-semibold text-mint-600 dark:text-mint-400 hover:underline"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-4 h-4"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"
+            ></path>
+          </svg>
+          Apri la sede su Google Maps
+        </a>
+      </p>
+
+      {
+        schedule.length > 0 && (
+          <div class="flex flex-col gap-4">
+            <Heading text="Il" textGradient="programma" level={3} />
+            <ul class="list-none p-0 m-0 flex flex-col">
+              {schedule.map((slot) => (
+                <li class="flex items-baseline gap-5 border-b last:border-b-0 border-neutral-100 dark:border-white/10 py-3">
+                  <span class="min-w-[4.5rem] text-lg font-bold text-mint-600 dark:text-mint-400">
+                    {slot.time}
+                  </span>
+                  <span class="text-base font-semibold text-blacktext dark:text-gray-200">
+                    {slot.label}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+
+      <div class="markdown" id="content">
+        <slot />
+      </div>
+
+      {
+        bookingRequired && !past && (
+          <div class="flex flex-col gap-4 rounded-2xl bg-linear-to-br from-mint-50/70 to-mint-200/20 dark:from-zinc-800 dark:to-mint-800/10 p-6">
+            <Heading
+              text="Prenotazione"
+              textGradient="obbligatoria"
+              level={3}
+            />
+            <p class="m-0 text-base font-semibold text-blacktext dark:text-gray-200">
+              {bookingNote ??
+                "Posti limitati: si entra solo su prenotazione. Scrivici su WhatsApp per bloccare il tuo posto."}
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <Button
+                link={whatsapp}
+                text="Prenota su WhatsApp"
+                iconName="whatsapp"
+                isExternal
+              />
+            </div>
+          </div>
+        )
+      }
+
+      {
+        others.length > 0 && (
+          <div class="flex flex-col gap-4 pt-4 border-t border-neutral-100 dark:border-white/10">
+            <Heading text="Gli altri" textGradient="eventi" level={3} />
+            <div class="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
+              {others.map((altro) => (
+                <EventCard
+                  url={`/eventi/${altro.id}/`}
+                  title={altro.data.title}
+                  description={altro.data.description}
+                  startDate={altro.data.startDate}
+                  image={altro.data.image}
+                  guest={altro.data.guest}
+                  past={
+                    (altro.data.endDate ?? altro.data.startDate).getTime() <
+                    Date.now()
+                  }
+                />
+              ))}
+            </div>
+          </div>
+        )
+      }
+    </article>
+  </section>
+
+  <Contact />
+</Layout>
