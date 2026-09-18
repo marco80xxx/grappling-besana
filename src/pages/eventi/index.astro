@@ -10,6 +10,8 @@ import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
 
 const { upcoming, past } = await getEventi();
+const upcomingOwn = upcoming.filter((evento) => !evento.data.external);
+const upcomingExternal = upcoming.filter((evento) => evento.data.external);
 
 const [staticData] = await getCollection("staticData");
 const { instagram, whatsapp, OGImage } = staticData.data;
@@ -21,10 +23,10 @@ const ogUrl = ogLocal
   ? (await getImage({ src: ogLocal, width: 1200 })).src
   : ogSource.url;
 
-const upcomingGridClass =
-  upcoming.length === 1
+const gridClassFor = (count: number) =>
+  count === 1
     ? "mx-auto max-w-md"
-    : upcoming.length === 2
+    : count === 2
       ? "mx-auto max-w-4xl grid grid-cols-2 max-md:grid-cols-1 gap-5"
       : "mx-auto max-w-7xl grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-5";
 ---
@@ -57,20 +59,20 @@ const upcomingGridClass =
           <Heading text="In" textGradient="arrivo" level={2} />
         </span>
         {
-          upcoming.length > 0 && (
+          upcomingOwn.length > 0 && (
             <p class="text-base font-semibold text-blacktext/70 dark:text-gray-300">
-              {upcoming.length === 1
+              {upcomingOwn.length === 1
                 ? "1 evento in programma"
-                : `${upcoming.length} eventi in programma`}
+                : `${upcomingOwn.length} eventi in programma`}
             </p>
           )
         }
       </div>
 
       {
-        upcoming.length > 0 ? (
-          <div class={upcomingGridClass}>
-            {upcoming.map((evento) => (
+        upcomingOwn.length > 0 ? (
+          <div class={gridClassFor(upcomingOwn.length)}>
+            {upcomingOwn.map((evento) => (
               <EventCard
                 url={`/eventi/${evento.id}/`}
                 title={evento.data.title}
@@ -101,6 +103,41 @@ const upcomingGridClass =
   </section>
 
   {
+    upcomingExternal.length > 0 && (
+      <section
+        class="max-2xl:px-8 pb-16 border-t border-neutral-100 dark:border-white/10 pt-16"
+        id="altri-eventi"
+        aria-labelledby="titolo-altri-eventi"
+      >
+        <div class="mx-auto max-w-7xl">
+          <div class="flex flex-col items-center text-center gap-2 mb-8">
+            <span id="titolo-altri-eventi">
+              <Heading text="Altri" textGradient="eventi" level={2} />
+            </span>
+            <p class="text-base font-semibold text-blacktext/70 dark:text-gray-300">
+              Eventi esterni a Grappling Besana, a cui il team parteciperà o ha
+              già partecipato.
+            </p>
+          </div>
+
+          <div class={gridClassFor(upcomingExternal.length)}>
+            {upcomingExternal.map((evento) => (
+              <EventCard
+                url={`/eventi/${evento.id}/`}
+                title={evento.data.title}
+                description={evento.data.description}
+                startDate={evento.data.startDate}
+                image={evento.data.image}
+                guest={evento.data.guest}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
     past.length > 0 && (
       <section
         class="max-2xl:px-8 pb-24 border-t border-neutral-100 dark:border-white/10 pt-16"
@@ -110,10 +147,10 @@ const upcomingGridClass =
         <div class="mx-auto max-w-7xl">
           <div class="flex flex-col items-center text-center gap-2 mb-8">
             <span id="titolo-archivio">
-              <Heading text="Già" textGradient="passati" level={2} />
+              <Heading text="Eventi" textGradient="Passati" level={2} />
             </span>
             <p class="text-base font-semibold text-blacktext/70 dark:text-gray-300">
-              L'archivio di chi è già salito sul nostro tatami.
+              L'archivio di quello che abbiamo fatto, in casa e in trasferta.
             </p>
           </div>
 

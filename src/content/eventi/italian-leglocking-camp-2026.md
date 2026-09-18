@@ -17,6 +17,7 @@ schedule:
     label: "3 sessioni: tecnica con Manuel Pilato, sparring e tavola rotonda Q&A"
 bookingRequired: false
 notice: "Evento organizzato da Kano Camps, non da Grappling Besana: lo segnaliamo perché saremo presenti in 9 come partecipanti paganti."
+external: true
 image:
   url: "/images/eventi/italian-leglocking-camp-2026-card.jpg"
   alt: "Locandina ufficiale dell'Italian Leglocking Camp 2026 di Kano Camps, 3-4 ottobre a Vigonovo"

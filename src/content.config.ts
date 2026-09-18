@@ -79,6 +79,9 @@ const eventiCollection = defineCollection({
     bookingNote: z.string().optional(),
     // Avviso in evidenza, es. "Open Mat sospeso"
     notice: z.string().optional(),
+    // true = evento organizzato da terzi a cui partecipiamo (mostrato in
+    // "Altri eventi" finche' e' in arrivo, non tra i nostri "In arrivo")
+    external: z.boolean().default(false),
     // Immagine quadrata (1:1) della card
     image: z.object({ url: z.string(), alt: z.string() }),
     // Locandina verticale opzionale, mostrata in cima alla pagina evento
