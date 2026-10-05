@@ -1,15 +1,15 @@
 ---
 title: "Italian Leglocking Camp 2026"
 subtitle: "Grappling Besana in trasferta da Kano Camps"
-description: "Il 3-4 ottobre eravamo in 9 all'Italian Leglocking Camp di Kano Camps a Vigonovo (VE): due giorni di no-gi con Ivan Tomasetti, Manuel Pilato e Christian Frillici. Evento esterno, non organizzato da Grappling Besana."
+description: "Il 3-4 ottobre eravamo in 9 all'Italian Leglocking Camp di Kano Camps a Villatora di Saonara (PD): due giorni di no-gi con Ivan Tomasetti, Manuel Pilato e Christian Frillici. Evento esterno, non organizzato da Grappling Besana."
 startDate: "2026-10-03T10:30:00+02:00"
 endDate: "2026-10-04T16:00:00+02:00"
 venue:
-  name: "Legio's Academy"
-  streetAddress: "via Padova, 64"
-  addressLocality: "Vigonovo"
-  postalCode: "30030"
-  addressRegion: "VE"
+  name: "Fight Evolution"
+  streetAddress: "via XX Settembre, 41"
+  addressLocality: "Villatora di Saonara"
+  postalCode: "35020"
+  addressRegion: "PD"
 schedule:
   - time: "Sab 3 ott"
     label: "4 sessioni: tecnica e sparring con Christian Frillici e Ivan Tomasetti"
@@ -20,14 +20,14 @@ notice: "Evento organizzato da Kano Camps, non da Grappling Besana."
 external: true
 image:
   url: "/images/eventi/italian-leglocking-camp-2026-card.jpg"
-  alt: "Il gruppo di Grappling Besana all'Italian Leglocking Camp 2026, seduto sui tatami di Legio's Academy"
+  alt: "Il gruppo di Grappling Besana all'Italian Leglocking Camp 2026, seduto sui tatami di Fight Evolution"
 poster:
   url: "/images/eventi/italian-leglocking-camp-2026-poster.jpg"
-  alt: "Il gruppo di Grappling Besana all'Italian Leglocking Camp 2026, seduto sui tatami di Legio's Academy"
+  alt: "Il gruppo di Grappling Besana all'Italian Leglocking Camp 2026, seduto sui tatami di Fight Evolution"
 draft: false
 ---
 
-Il 3 e 4 ottobre una bella fetta di Grappling Besana è stata in trasferta a Vigonovo (VE), da **Legio's Academy**, per l'**Italian Leglocking Camp** organizzato da Kano Camps. **Eravamo in 9** a rappresentare il team.
+Il 3 e 4 ottobre una bella fetta di Grappling Besana è stata in trasferta a Villatora di Saonara (PD), da **Fight Evolution**, per l'**Italian Leglocking Camp** organizzato da Kano Camps. **Eravamo in 9** a rappresentare il team.
 
 Non era un nostro evento: lo ricordiamo qui perché è stato un appuntamento importante per una parte della squadra.
 
