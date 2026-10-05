@@ -1,7 +1,7 @@
 ---
 title: "Italian Leglocking Camp 2026"
 subtitle: "Grappling Besana in trasferta da Kano Camps"
-description: "Il 3-4 ottobre saremo in 9 all'Italian Leglocking Camp di Kano Camps a Vigonovo (VE), due giorni di no-gi con Ivan Tomasetti, Manuel Pilato e Christian Frillici. Evento esterno, non organizzato da Grappling Besana."
+description: "Il 3-4 ottobre eravamo in 9 all'Italian Leglocking Camp di Kano Camps a Vigonovo (VE): due giorni di no-gi con Ivan Tomasetti, Manuel Pilato e Christian Frillici. Evento esterno, non organizzato da Grappling Besana."
 startDate: "2026-10-03T10:30:00+02:00"
 endDate: "2026-10-04T16:00:00+02:00"
 venue:
@@ -20,13 +20,16 @@ notice: "Evento organizzato da Kano Camps, non da Grappling Besana."
 external: true
 image:
   url: "/images/eventi/italian-leglocking-camp-2026-card.jpg"
-  alt: "Locandina ufficiale dell'Italian Leglocking Camp 2026 di Kano Camps, 3-4 ottobre a Vigonovo"
+  alt: "Il gruppo di Grappling Besana all'Italian Leglocking Camp 2026, seduto sui tatami di Legio's Academy"
+poster:
+  url: "/images/eventi/italian-leglocking-camp-2026-poster.jpg"
+  alt: "Il gruppo di Grappling Besana all'Italian Leglocking Camp 2026, seduto sui tatami di Legio's Academy"
 draft: false
 ---
 
-Il 3 e 4 ottobre una bella fetta di Grappling Besana sarà in trasferta a Vigonovo (VE), da **Legio's Academy**, per l'**Italian Leglocking Camp** organizzato da Kano Camps. **Saremo in 9** a rappresentare il team.
+Il 3 e 4 ottobre una bella fetta di Grappling Besana è stata in trasferta a Vigonovo (VE), da **Legio's Academy**, per l'**Italian Leglocking Camp** organizzato da Kano Camps. **Eravamo in 9** a rappresentare il team.
 
-Non è un nostro evento e non si prenota tramite di noi: lo segnaliamo qui solo perché è un appuntamento importante per una parte della squadra, e chi ci segue potrebbe incrociarci sul tatami.
+Non era un nostro evento: lo ricordiamo qui perché è stato un appuntamento importante per una parte della squadra.
 
 ## Il camp
 
@@ -40,6 +43,6 @@ Due giorni interi dedicati esclusivamente al leglock no-gi, con tre istruttori d
 
 **Domenica 4 ottobre**: tre sessioni con la tecnica di Pilato, sparring libero e una tavola rotonda di Q&A con tutti e tre gli istruttori.
 
-## Info e iscrizioni
+## Info
 
-Per dettagli su costi, disponibilità posti e iscrizione, il riferimento è direttamente **Kano Camps** — <a href="https://kanocamps.com/leglockcamp2026/" target="blank">kanocamps.com/leglockcamp2026</a> o info@kanocamps.com.
+Per saperne di più sul camp e sui prossimi appuntamenti, il riferimento è direttamente **Kano Camps** — <a href="https://kanocamps.com/leglockcamp2026/" target="blank">kanocamps.com/leglockcamp2026</a> o info@kanocamps.com.
