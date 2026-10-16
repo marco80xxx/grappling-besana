@@ -24,7 +24,7 @@ const { github, alias, instagram, email, emailIconName, instagramIconName } =
         <Icon name="gb-mini-logo" aria-hidden="true" />
       </a>
     </div>
-    <div class="text-center">
+    <div class="flex flex-col items-center gap-2 text-center">
       <a
         href={github}
         class="flex items-center justify-center gap-3 text-base font-normal italic max-sm:text-sm"
@@ -32,6 +32,11 @@ const { github, alias, instagram, email, emailIconName, instagramIconName } =
         ><Icon name="code" aria-hidden="true" /> Developed by <strong
           >{alias}</strong
         > with Astro</a
+      >
+      <a
+        href="/privacy"
+        class="text-sm font-normal underline-offset-4 hover:underline hover:text-mint-500 transition-all"
+        >Informativa privacy e rimozione foto</a
       >
     </div>
     <div

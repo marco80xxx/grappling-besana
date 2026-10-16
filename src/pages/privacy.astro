@@ -1,0 +1,180 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Heading from "../components/ui/Heading.astro";
+import Contact from "../components/portfolio/Contact.astro";
+import { getCollection } from "astro:content";
+
+const [staticData] = await getCollection("staticData");
+const { email } = staticData.data;
+
+const removalMail = `mailto:${email}?subject=${encodeURIComponent("Richiesta rimozione foto")}&body=${encodeURIComponent(
+  "Ciao,\nvorrei che venisse rimossa una foto in cui compaio dal sito.\n\nPagina del sito (indirizzo):\n\nDescrizione della foto (es. foto di gruppo, fila, posizione):\n\nSe la richiesta riguarda un minorenne, indica che scrivi come genitore o tutore:\n\nGrazie",
+)}`;
+---
+
+<Layout
+  pageTitle="Informativa privacy | Grappling Besana"
+  description="Come Grappling Besana tratta i dati personali di chi visita il sito, quali servizi di terzi vengono caricati e come chiedere la rimozione di una foto."
+>
+  <section
+    class="relative mx-auto px-8 max-sm:px-4 flex flex-row justify-center gap-6"
+  >
+    <article
+      class="flex flex-col gap-6 max-w-3xl max-md:w-full pb-10 pt-8 mt-8 px-14 max-md:px-10 max-sm:px-4 dark:bg-transparent bg-white dark:border-0 border border-neutral-100 rounded-2xl"
+    >
+      <header class="flex flex-col gap-3">
+        <Heading text="Informativa" textGradient="privacy" level={1} />
+        <p class="m-0 text-sm font-semibold text-blacktext/60 dark:text-zinc-400">
+          Ultimo aggiornamento: 16 ottobre 2026
+        </p>
+      </header>
+
+      <div class="markdown">
+        <p>
+          Questa pagina spiega, ai sensi degli artt. 13 e 14 del Regolamento
+          (UE) 2016/679 (GDPR), come vengono trattati i dati personali di chi
+          visita <strong>grapplingbesana.com</strong>. Il sito è costruito per
+          raccogliere il minimo indispensabile.
+        </p>
+
+        <h3>In breve</h3>
+        <ul>
+          <li>Nessun cookie di profilazione, nessun analytics, nessuna pubblicità.</li>
+          <li>Nessun modulo di raccolta dati e nessuna newsletter.</li>
+          <li>I tuoi dati non vengono venduti né ceduti.</li>
+          <li>
+            Prima di un tuo click il sito non si collega a servizi di terzi per
+            font, mappe o statistiche.
+          </li>
+        </ul>
+
+        <h3>Titolare del trattamento</h3>
+        <p>
+          Il titolare del trattamento è <strong>Marco Beccari</strong>, per
+          Grappling Besana. Per qualsiasi richiesta sui dati personali puoi
+          scrivere a <a href={`mailto:${email}`}>{email}</a>.
+        </p>
+
+        <h3>Dati di navigazione</h3>
+        <p>
+          Il sito è ospitato da Cloudflare, che per erogare le pagine tratta
+          dati tecnici di navigazione: indirizzo IP, data e ora della
+          richiesta, pagina richiesta, browser e dispositivo. Servono a far
+          funzionare il sito e a proteggerlo da abusi (art. 6.1.f GDPR,
+          legittimo interesse). Non li usiamo per profilare i visitatori.
+          Cloudflare può trattarli anche fuori dallo Spazio economico europeo,
+          con le garanzie previste dal GDPR. Maggiori informazioni nella{" "}
+          <a
+            href="https://www.cloudflare.com/privacypolicy/"
+            target="_blank"
+            rel="noopener noreferrer">loro informativa</a
+          >.
+        </p>
+
+        <h3>Preferenza chiaro/scuro</h3>
+        <p>
+          Se scegli il tema chiaro o scuro, la preferenza viene salvata nel
+          tuo browser per ricordarla alla visita successiva. Resta sul tuo
+          dispositivo, non viene inviata a nessuno e non serve a tracciarti.
+        </p>
+
+        <h3>Se ci scrivi</h3>
+        <p>
+          Se ci contatti via email, WhatsApp o Instagram usiamo le
+          informazioni che ci invii (nome, recapito, contenuto del messaggio)
+          solo per risponderti e, se lo chiedi, per organizzare una prova o
+          un'iscrizione (art. 6.1.b GDPR). Le conserviamo per il tempo
+          necessario a gestire la richiesta. Su quei servizi valgono anche le
+          informative di chi li gestisce (ad esempio Meta per WhatsApp e
+          Instagram). Il pulsante "Scrivici su WhatsApp" precompila un
+          messaggio che puoi modificare prima di inviarlo.
+        </p>
+
+        <h3>Mappa della sede</h3>
+        <p>
+          Nelle pagine "Dove siamo" e "About Us" vedi un'immagine statica
+          della sede, che non contatta nessun servizio esterno. Solo se clicchi
+          "Apri la mappa interattiva" viene caricata la mappa di Google Maps:
+          da quel momento Google riceve il tuo indirizzo IP e può usare
+          cookie, secondo la{" "}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer">propria informativa</a
+          >. La base giuridica è il tuo consenso, espresso con il click (art.
+          6.1.a GDPR). Se non clicchi, nessun dato arriva a Google.
+        </p>
+
+        <h3>Cookie</h3>
+        <p>
+          Il sito non usa cookie propri né di terze parti per profilazione,
+          statistiche o pubblicità, e per questo non mostra nessun banner.
+          L'unica eccezione è Google Maps dopo il tuo click, come descritto
+          sopra. I siti che apri dai nostri link (Instagram, WhatsApp e altri)
+          seguono le loro regole.
+        </p>
+
+        <h3 id="foto">Foto e video</h3>
+        <p>
+          Sul sito pubblichiamo foto di allenamenti, eventi e gruppi del team
+          in cui le persone sono riconoscibili. Le immagini vengono pubblicate
+          con il consenso delle persone ritratte (per i minorenni, di chi
+          esercita la responsabilità genitoriale), art. 6.1.a GDPR. Puoi
+          revocare il consenso in qualsiasi momento: la revoca non pregiudica
+          la pubblicazione avvenuta prima.
+        </p>
+
+        <h3 id="rimozione-foto">Come chiedere la rimozione di una foto</h3>
+        <p>
+          Se compari in una foto e vuoi che la togliamo, oppure pensi che sia
+          stata pubblicata senza il tuo consenso:
+        </p>
+        <ol>
+          <li>
+            scrivici a <a href={`mailto:${email}`}>{email}</a> con oggetto
+            "Richiesta rimozione foto";
+          </li>
+          <li>
+            indicaci la pagina del sito (copia l'indirizzo dalla barra del
+            browser) e descrivi la foto, ad esempio "foto di gruppo del
+            Raduno, prima fila a sinistra";
+          </li>
+          <li>
+            se la richiesta riguarda un minorenne, scrivi come genitore o
+            tutore.
+          </li>
+        </ol>
+        <p>
+          <a href={removalMail}>Apri una email già compilata</a> con questi
+          campi. Rimuoviamo la foto senza ingiustificato ritardo e comunque
+          entro un mese dalla richiesta. Se è presente anche sui nostri
+          profili social, la togliamo anche da lì. Potremmo chiederti una
+          conferma dell'identità solo se strettamente necessaria.
+        </p>
+
+        <h3>I tuoi diritti</h3>
+        <p>
+          Puoi chiedere l'accesso ai tuoi dati, la rettifica, la
+          cancellazione, la limitazione del trattamento, la portabilità e
+          opporti al trattamento (artt. 15-22 GDPR), scrivendo a{" "}
+          <a href={`mailto:${email}`}>{email}</a>. Rispondiamo entro un mese.
+          Se ritieni che il trattamento violi la normativa puoi presentare
+          reclamo al{" "}
+          <a
+            href="https://www.garanteprivacy.it"
+            target="_blank"
+            rel="noopener noreferrer">Garante per la protezione dei dati personali</a
+          >.
+        </p>
+
+        <h3>Modifiche</h3>
+        <p>
+          Se il sito cambia in modo rilevante per la privacy, aggiorniamo
+          questa pagina e la data in alto.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <Contact />
+</Layout>
