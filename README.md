@@ -70,7 +70,6 @@
 - **Icons**: astro-icon v1.1.5
 - **Syntax Highlighting**: PrismJS v1.30.0
 - **Animations**: tailwindcss-animated v2.0.0
-- **Analytics**: @vercel/speed-insights v1.2.0
 
 ## ✨ Key Features
 
@@ -84,10 +83,9 @@
    - Hot module replacement
    - ESLint integration
 
-3. **🔍 SEO & Analytics**
+3. **🔍 SEO**
    - Built-in sitemap generation
    - RSS feed support
-   - Vercel Speed Insights
 
 4. **🎨 Styling & UI**
    - TailwindCSS for utility-first styling
