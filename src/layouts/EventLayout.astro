@@ -47,6 +47,9 @@ const { whatsapp, telephone, email, profileName, addressCountry } =
 const heroSource = poster ?? image;
 const heroImage = getLocalImage(heroSource.url);
 const flyerImage = flyer ? getLocalImage(flyer.url) : undefined;
+const flyerFull = flyerImage
+  ? await getImage({ src: flyerImage, width: 1080 })
+  : undefined;
 const ogLocal = getLocalImage(image.url);
 const ogUrl = ogLocal
   ? (await getImage({ src: ogLocal, width: 1200 })).src
@@ -189,22 +192,6 @@ const infoRows = [
       }
 
       {
-        flyer && flyerImage && (
-          <figure class="m-0 mx-auto flex w-full max-w-sm flex-col items-center gap-3">
-            <Image
-              class="w-full rounded-xl"
-              src={flyerImage}
-              width={600}
-              alt={flyer.alt}
-            />
-            <figcaption class="text-sm font-semibold text-blacktext/60 dark:text-zinc-400">
-              La locandina dell'evento
-            </figcaption>
-          </figure>
-        )
-      }
-
-      {
         past && (
           <p class="rounded-xl border border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-white/5 px-5 py-4 text-base font-semibold text-blacktext/80 dark:text-gray-300">
             Questo evento si è già svolto. Trovi i prossimi nella
@@ -226,44 +213,92 @@ const infoRows = [
         )
       }
 
-      <dl
-        class="grid grid-cols-1 gap-0 rounded-2xl border border-neutral-100 dark:border-white/10 overflow-hidden"
+      <div
+        class:list={[
+          "flex gap-6",
+          flyer && flyerImage
+            ? "items-start max-md:flex-col max-md:items-center"
+            : "flex-col",
+        ]}
       >
         {
-          infoRows.map((row) => (
-            <div class="grid grid-cols-[7rem_1fr] max-sm:grid-cols-1 gap-2 px-5 py-4 border-b last:border-b-0 border-neutral-100 dark:border-white/10">
-              <dt class="text-xs font-bold uppercase tracking-wide text-blacktext/60 dark:text-zinc-400 self-center">
-                {row.label}
-              </dt>
-              <dd class="m-0 text-base font-semibold text-blacktext dark:text-gray-200">
-                {row.value}
-              </dd>
-            </div>
-          ))
+          flyer && flyerImage && flyerFull && (
+            <a
+              href={flyerFull.src}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-lightbox-open
+              aria-label="Ingrandisci la locandina"
+              class="group relative block w-56 shrink-0 cursor-zoom-in overflow-hidden rounded-xl max-lg:w-48 max-md:w-64"
+            >
+              <Image
+                class="block w-full rounded-xl transition-transform duration-300 group-hover:scale-[1.03]"
+                src={flyerImage}
+                width={448}
+                alt={flyer.alt}
+              />
+              <span
+                class="pointer-events-none absolute bottom-2 right-2 rounded-full bg-black/60 p-2 text-white backdrop-blur-sm transition-colors group-hover:bg-mint-600"
+                aria-hidden="true"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  class="h-4 w-4"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                </svg>
+              </span>
+            </a>
+          )
         }
-      </dl>
 
-      <p class="m-0">
-        <a
-          href={mapsLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 text-sm font-semibold text-mint-600 dark:text-mint-400 hover:underline"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="w-4 h-4"
-            aria-hidden="true"
+        <div class="flex w-full min-w-0 flex-1 flex-col gap-8">
+          <dl
+            class="grid grid-cols-1 gap-0 rounded-2xl border border-neutral-100 dark:border-white/10 overflow-hidden"
           >
-            <path
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"
-            ></path>
-          </svg>
-          Apri la sede su Google Maps
-        </a>
-      </p>
+            {
+              infoRows.map((row) => (
+                <div class="grid grid-cols-[7rem_1fr] max-sm:grid-cols-1 gap-2 px-5 py-4 border-b last:border-b-0 border-neutral-100 dark:border-white/10">
+                  <dt class="text-xs font-bold uppercase tracking-wide text-blacktext/60 dark:text-zinc-400 self-center">
+                    {row.label}
+                  </dt>
+                  <dd class="m-0 text-base font-semibold text-blacktext dark:text-gray-200">
+                    {row.value}
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+
+          <p class="m-0">
+            <a
+              href={mapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-mint-600 dark:text-mint-400 hover:underline"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-4 h-4"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"
+                ></path>
+              </svg>
+              Apri la sede su Google Maps
+            </a>
+          </p>
+        </div>
+      </div>
 
       {
         schedule.length > 0 && (
@@ -339,5 +374,63 @@ const infoRows = [
     </article>
   </section>
 
+  {
+    flyer && flyerFull && (
+      <dialog
+        data-lightbox
+        aria-label="Locandina ingrandita"
+        class="relative m-auto max-h-[96vh] max-w-[96vw] overflow-visible border-0 bg-transparent p-0 backdrop:bg-black/85 backdrop:backdrop-blur-sm"
+      >
+        <img
+          src={flyerFull.src}
+          width={flyerFull.attributes.width}
+          height={flyerFull.attributes.height}
+          alt={flyer.alt}
+          loading="lazy"
+          decoding="async"
+          class="block h-auto max-h-[92vh] w-auto max-w-[92vw] cursor-zoom-out rounded-xl shadow-2xl"
+        />
+        <button
+          type="button"
+          aria-label="Chiudi"
+          class="absolute right-2 top-2 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-black/70 text-white transition-colors hover:bg-mint-600"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            class="h-4 w-4"
+            aria-hidden="true"
+          >
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </dialog>
+    )
+  }
+
   <Contact />
 </Layout>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>("[data-lightbox]");
+
+  if (dialog) {
+    document
+      .querySelectorAll<HTMLAnchorElement>("[data-lightbox-open]")
+      .forEach((trigger) => {
+        trigger.addEventListener("click", (event) => {
+          // Cmd/Ctrl/Shift-click: lascia aprire l'immagine in una nuova scheda
+          if (event.metaKey || event.ctrlKey || event.shiftKey) return;
+          event.preventDefault();
+          dialog.showModal();
+        });
+      });
+
+    // Un click ovunque (sfondo, immagine o pulsante) chiude; Esc e' gestito dal browser
+    dialog.addEventListener("click", () => dialog.close());
+  }
+</script>

@@ -275,3 +275,8 @@ a.inline-block.leading-5.pl-12{
 	filter: blur(10px);
 
 }
+
+/* Blocca lo scroll della pagina mentre un lightbox (<dialog>) e aperto */
+html:has(dialog[open]) {
+	overflow: hidden;
+}
