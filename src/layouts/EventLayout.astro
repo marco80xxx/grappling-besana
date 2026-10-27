@@ -379,7 +379,7 @@ const infoRows = [
       <dialog
         data-lightbox
         aria-label="Locandina ingrandita"
-        class="relative m-auto max-h-[96vh] max-w-[96vw] overflow-visible border-0 bg-transparent p-0 backdrop:bg-black/85 backdrop:backdrop-blur-sm"
+        class="fixed inset-0 m-0 h-full max-h-none w-full max-w-none items-center justify-center overflow-hidden overscroll-contain border-0 bg-transparent p-0 open:flex backdrop:bg-black/85 backdrop:backdrop-blur-sm"
       >
         <img
           src={flyerFull.src}
@@ -388,12 +388,13 @@ const infoRows = [
           alt={flyer.alt}
           loading="lazy"
           decoding="async"
-          class="block h-auto max-h-[92vh] w-auto max-w-[92vw] cursor-zoom-out rounded-xl shadow-2xl"
+          style="max-width: calc(100vw - 1.5rem); max-width: calc(100dvw - 1.5rem); max-height: calc(100vh - 1.5rem); max-height: calc(100dvh - 1.5rem);"
+          class="block h-auto w-auto shrink-0 cursor-zoom-out rounded-xl object-contain shadow-2xl"
         />
         <button
           type="button"
           aria-label="Chiudi"
-          class="absolute right-2 top-2 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-black/70 text-white transition-colors hover:bg-mint-600"
+          class="absolute right-3 top-3 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/70 text-white transition-colors hover:bg-mint-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
