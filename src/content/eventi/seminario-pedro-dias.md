@@ -21,6 +21,12 @@ bookingRequired: true
 image:
   url: "/images/eventi/seminario-pedro-dias-card.jpg"
   alt: "Locandina del seminario con Pedro Dias, sabato 7 febbraio a Besana Brianza"
+poster:
+  url: "/images/eventi/seminario-pedro-dias-group.jpg"
+  alt: "Foto di gruppo dei partecipanti al seminario con Pedro Dias, in posa sul tatami di Besana Brianza"
+flyer:
+  url: "/images/eventi/seminario-pedro-dias-locandina.jpg"
+  alt: "Locandina del seminario con Pedro Dias: sabato 7 febbraio, ore 11:00-13:00, Polisportiva Besanese, Besana Brianza"
 draft: false
 ---
 
