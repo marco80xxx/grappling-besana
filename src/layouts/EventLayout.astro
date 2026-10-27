@@ -37,6 +37,7 @@ const {
   notice,
   image,
   poster,
+  flyer,
 } = evento.data;
 
 const [staticData] = await getCollection("staticData");
@@ -45,6 +46,7 @@ const { whatsapp, telephone, email, profileName, addressCountry } =
 
 const heroSource = poster ?? image;
 const heroImage = getLocalImage(heroSource.url);
+const flyerImage = flyer ? getLocalImage(flyer.url) : undefined;
 const ogLocal = getLocalImage(image.url);
 const ogUrl = ogLocal
   ? (await getImage({ src: ogLocal, width: 1200 })).src
@@ -182,6 +184,22 @@ const infoRows = [
               width={900}
               alt={heroSource.alt}
             />
+          </figure>
+        )
+      }
+
+      {
+        flyer && flyerImage && (
+          <figure class="m-0 mx-auto flex w-full max-w-sm flex-col items-center gap-3">
+            <Image
+              class="w-full rounded-xl"
+              src={flyerImage}
+              width={600}
+              alt={flyer.alt}
+            />
+            <figcaption class="text-sm font-semibold text-blacktext/60 dark:text-zinc-400">
+              La locandina dell'evento
+            </figcaption>
           </figure>
         )
       }

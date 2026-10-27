@@ -30,8 +30,14 @@ export async function getEventi(now: Date = new Date()) {
     }
     if (evento.data.poster && !getLocalImage(evento.data.poster.url)) {
       throw new Error(
-        `[eventi] Locandina non trovata per "${evento.id}": ` +
+        `[eventi] Immagine principale non trovata per "${evento.id}": ` +
           `"${evento.data.poster.url}" — il file deve esistere in src/assets${evento.data.poster.url}`,
+      );
+    }
+    if (evento.data.flyer && !getLocalImage(evento.data.flyer.url)) {
+      throw new Error(
+        `[eventi] Locandina non trovata per "${evento.id}": ` +
+          `"${evento.data.flyer.url}" — il file deve esistere in src/assets${evento.data.flyer.url}`,
       );
     }
   }

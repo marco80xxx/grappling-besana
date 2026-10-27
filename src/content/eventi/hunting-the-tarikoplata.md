@@ -27,6 +27,9 @@ image:
 poster:
   url: "/images/eventi/hunting-the-tarikoplata-group.jpg"
   alt: "Foto di gruppo dei partecipanti al seminario Hunting the Tarikoplata con Robert Hastings, in posa sul tatami di Besana Brianza"
+flyer:
+  url: "/images/eventi/hunting-the-tarikoplata-locandina.jpg"
+  alt: "Locandina del seminario Hunting the Tarikoplata con Robert Hastings: sabato 24 ottobre, Palazzetto E. Perego, Besana Brianza"
 draft: false
 ---
 

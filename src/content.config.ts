@@ -84,8 +84,10 @@ const eventiCollection = defineCollection({
     external: z.boolean().default(false),
     // Immagine quadrata (1:1) della card
     image: z.object({ url: z.string(), alt: z.string() }),
-    // Locandina verticale opzionale, mostrata in cima alla pagina evento
+    // Immagine principale in cima alla pagina evento (se assente si usa `image`)
     poster: z.object({ url: z.string(), alt: z.string() }).optional(),
+    // Locandina promozionale verticale: mostrata compatta sotto l'immagine principale
+    flyer: z.object({ url: z.string(), alt: z.string() }).optional(),
     // true = non pubblicato in produzione
     draft: z.boolean().default(false),
   }),
