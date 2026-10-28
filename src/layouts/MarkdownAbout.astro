@@ -4,7 +4,15 @@ import Heading from "../components/ui/Heading.astro";
 import NavArticle from "../components/layout/NavArticle.astro";
 import Contact from "../components/portfolio/Contact.astro";
 import ShareButton from "../components/ui/ShareButton.astro";
+import TimetableTable from "../components/timetable/TimetableTable.astro";
 const { frontmatter } = Astro.props;
+
+// Il marcatore <!-- tabella-orari --> nel markdown indica dove inserire la
+// tabella degli orari (stessa fonte dati e stesso componente della home).
+const rendered = await Astro.slots.render("default");
+const [beforeTimetable, afterTimetable] = rendered.split(
+  /<!--\s*tabella-orari\s*-->/,
+);
 ---
 
 <script>
@@ -78,7 +86,15 @@ const { frontmatter } = Astro.props;
         </div>
       </div>
       <div class="markdown text-white" id="content">
-        <slot />
+        <Fragment set:html={beforeTimetable} />
+        {
+          afterTimetable !== undefined && (
+            <div class="mb-8 max-sm:-mx-4">
+              <TimetableTable />
+            </div>
+            <Fragment set:html={afterTimetable} />
+          )
+        }
       </div>
     </article>
     <NavArticle title={frontmatter.title} />

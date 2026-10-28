@@ -1,58 +1,85 @@
 ---
 import { getCollection } from "astro:content";
-import { Image, getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import { getLocalImage } from "../../utils/images";
+import { stagione } from "../../data/orari";
+import TimetableTable from "./TimetableTable.astro";
 
 const [staticData] = await getCollection("staticData");
-const {
-  profileAlt,
-  profileLink,
-  profileImage,
-  profileName,
-  profileTitle,
-  email,
-  emailIconName,
-  github,
-  timetableImage,
-  timetableTitle,
-  contactSectionButtonText,
-} = staticData.data;
+const { timetableImage, timetableTitle } = staticData.data;
 
 const timetableLocalImage = getLocalImage(timetableImage);
-const timetablePreviewSrc = timetableLocalImage
-  ? (await getImage({ src: timetableLocalImage, width: 800 })).src
-  : timetableImage;
+const posterAlt = `Locandina con gli orari settimanali dei corsi di Grappling Besana, stagione ${stagione}: grappling, BJJ, judo e S&C dal lunedì al sabato`;
 ---
 
 <section class="py-8 px-8 max-md:py-1 mb-4 scroll-m-16" id="timetable">
-    <h1
-        class="text-4xl font-bold leading-12 text-blacktext dark:text-white items-center justify-center text-center" 
+    <h2
+        class="text-4xl font-bold leading-12 text-blacktext dark:text-white items-center justify-center text-center"
         >
         {timetableTitle}
-    </h1>
-<div
-    class="mx-auto mb-4 mt-16 h-full w-full max-w-7xl rounded-2xl flex justify-center items-center max-md:h-auto">
-        <div class="relative z-20 flex justify-center items-center w-200 mx-auto">
-            <!-- Immagine cliccabile con cursore pointer e effetto hover leggero -->
-            <div
+    </h2>
+
+<div class="mx-auto max-w-7xl py-8">
+    <div class="z-2 text-center mx-auto text-lg max-xl:text-base max-w-4xl dark:text-gray-200 text-blacktext my-6 leading-6 font-medium">
+        <p class="mb-8">Scopri la programmazione ufficiale dei corsi per la nuova stagione. Un'offerta completa di Grappling, BJJ, Judo e Strength & Conditioning strutturata per soddisfare ogni esigenza di training, dai turni in pausa pranzo fino alle sessioni serali e al weekend.</p>
+    </div>
+
+    <div class="mx-auto w-full max-w-3xl max-sm:-mx-4 max-sm:w-auto">
+        <TimetableTable />
+    </div>
+
+    {
+      timetableLocalImage && (
+        <div class="mx-auto mt-12 flex w-full max-w-sm flex-col items-center gap-3">
+            <button
                 id="timetable-trigger"
-                class="mt-3 w-full aspect-square bg-center bg-contain bg-no-repeat scale-100 transition-transform cursor-pointer transition-transform duration-600 hover:scale-103"
-                style={`background-image: url(${timetablePreviewSrc})`}
-                aria-label={timetableImage}
-                title="Clicca per ingrandire"
-            ></div>
+                type="button"
+                aria-label="Ingrandisci la locandina degli orari"
+                class="group relative block w-full cursor-zoom-in overflow-hidden rounded-2xl"
+            >
+                <Image
+                    src={timetableLocalImage}
+                    alt={posterAlt}
+                    width={700}
+                    class="block w-full transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+                <span
+                    class="pointer-events-none absolute bottom-3 right-3 rounded-full bg-black/60 p-2 text-white backdrop-blur-sm transition-colors group-hover:bg-mint-600"
+                    aria-hidden="true"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        class="h-4 w-4"
+                    >
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="M21 21l-4.3-4.3M11 8v6M8 11h6" />
+                    </svg>
+                </span>
+            </button>
+            <p class="text-sm font-semibold text-blacktext/60 dark:text-zinc-400">
+                La locandina degli orari: clicca per ingrandire
+            </p>
         </div>
-</div>
+      )
+    }
+
+    <slot />
+  </div>
 
 <!-- Lightbox Overlay (inizialmente nascosto) -->
-<div 
-    id="timetable-lightbox" 
+<div
+    id="timetable-lightbox"
     class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 cursor-pointer"
 >
     <div class="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center">
         <!-- Pulsante di chiusura -->
-        <button 
-            id="lightbox-close" 
+        <button
+            id="lightbox-close"
             class="absolute top-4 right-4 text-white bg-black/50 hover:bg-black/80 rounded-full p-2 w-10 h-10 flex items-center justify-center text-xl font-bold transition-colors z-10"
             aria-label="Chiudi"
         >
@@ -62,83 +89,14 @@ const timetablePreviewSrc = timetableLocalImage
         {timetableLocalImage ? (
           <Image
             src={timetableLocalImage}
-            alt={timetableTitle}
+            alt={posterAlt}
             width={1400}
             class="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-2xl cursor-default"
             id="lightbox-img"
           />
-        ) : (
-          <img
-              src={timetableImage}
-              alt={timetableTitle}
-              class="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-2xl cursor-default"
-              id="lightbox-img"
-          />
-        )}
+        ) : null}
     </div>
 </div>
-
-<div class="mx-auto max-w-7xl py-8">
-    <div class="flex gap-4 items-center justify-center text-center">
-    </div>
-
-    <div class="z-2 text-center mx-auto text-lg max-xl:text-base max-w-4xl dark:text-gray-200 text-blacktext my-6 leading-6 font-medium">
-        <p class="mb-6">Scopri la programmazione ufficiale dei corsi per la nuova stagione. Un'offerta completa di Grappling, BJJ, Judo e Strength & Conditioning strutturata per soddisfare ogni esigenza di training, dai turni in pausa pranzo fino alle sessioni serali e al weekend.</p>
-        
-        <div class="schedule-container text-left inline-block space-y-4 w-full max-w-2xl">
-            <div class="day-schedule">
-                <h3 class="font-bold">Lunedì</h3>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>12:30 - 13:30</strong> | Grappling (Pausa Pranzo)</li>
-                    <li><strong>18:30 - 19:30</strong> | S&amp;C (Strength &amp; Conditioning)</li>
-                    <li><strong>19:30 - 21:00</strong> | Grappling</li>
-                </ul>
-            </div>
-
-            <div class="day-schedule">
-                <h3 class="font-bold">Martedì</h3>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>12:30 - 13:30</strong> | Grappling (Pausa Pranzo)</li>
-                    <li><strong>19:30 - 21:00</strong> | Judo</li>
-                </ul>
-            </div>
-
-            <div class="day-schedule">
-                <h3 class="font-bold">Mercoledì</h3>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>12:30 - 13:30</strong> | BJJ con Gi</li>
-                    <li><strong>18:30 - 19:30</strong> | S&amp;C (Strength &amp; Conditioning)</li>
-                    <li><strong>19:30 - 21:00</strong> | Grappling</li>
-                </ul>
-            </div>
-
-            <div class="day-schedule">
-                <h3 class="font-bold">Giovedì</h3>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>12:30 - 13:30</strong> | Grappling (Pausa Pranzo)</li>
-                    <li><strong>19:30 - 21:00</strong> | Judo</li>
-                </ul>
-            </div>
-
-            <div class="day-schedule">
-                <h3 class="font-bold">Venerdì</h3>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>12:30 - 13:30</strong> | Grappling (Pausa Pranzo)</li>
-                    <li><strong>17:30 - 18:30</strong> | S&amp;C (Strength &amp; Conditioning)</li>
-                    <li><strong>18:30 - 20:00</strong> | Grappling</li>
-                </ul>
-            </div>
-
-            <div class="day-schedule">
-                <h3 class="font-bold">Sabato</h3>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>11:00 - 13:00</strong> | Grappling Open Mat</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <slot />
-  </div>
 </section>
 
 <script>

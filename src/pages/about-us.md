@@ -91,7 +91,7 @@ All'interno del team sono presenti numerose cinture di alto grado tra Marroni e 
 
 ## 🕒 Orari 2026/27
 
-![orari grappling bjj judo s&c Besana Brianza](../assets/images/Orari-Classi-Grappling-Besana-2026-2027.png "Orari Stagione 2026/27 Grappling Besana")
+<!-- tabella-orari -->
 
 
 ## Let's Do Amazing Things 🚀 
