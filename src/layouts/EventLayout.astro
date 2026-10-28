@@ -8,6 +8,7 @@ import EventCard from "../components/eventi/EventCard.astro";
 import { Image, getImage } from "astro:assets";
 import { getCollection } from "astro:content";
 import { getLocalImage } from "../utils/images";
+import { organizationId } from "../utils/schema";
 import {
   formatEventDate,
   formatEventTime,
@@ -35,14 +36,15 @@ const {
   bookingRequired,
   bookingNote,
   notice,
+  external,
+  organizerName,
   image,
   poster,
   flyer,
 } = evento.data;
 
 const [staticData] = await getCollection("staticData");
-const { whatsapp, telephone, email, profileName, addressCountry } =
-  staticData.data;
+const { whatsapp, profileName, addressCountry } = staticData.data;
 
 const heroSource = poster ?? image;
 const heroImage = getLocalImage(heroSource.url);
@@ -64,6 +66,33 @@ const whatsappBase = whatsapp.split("?")[0];
 const bookingMessage = `Ciao! Vorrei prenotare un posto per il seminario "${title}"${guest ? ` con ${guest}` : ""} di ${formatEventDate(startDate)}.`;
 const whatsappBookingLink = `${whatsappBase}?text=${encodeURIComponent(bookingMessage)}`;
 
+const location = {
+  "@type": "Place",
+  name: venue.name,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: venue.streetAddress,
+    addressLocality: venue.addressLocality,
+    ...(venue.postalCode ? { postalCode: venue.postalCode } : {}),
+    ...(venue.addressRegion ? { addressRegion: venue.addressRegion } : {}),
+    addressCountry,
+  },
+};
+
+// Organizzatore: gli eventi nostri puntano all'organizzazione del sito tramite
+// @id; quelli esterni NON dichiarano Grappling Besana come organizzatore
+// (solo il nome indicato in organizerName, altrimenti nessun organizer).
+const organizer = external
+  ? organizerName
+    ? { "@type": "Organization", name: organizerName }
+    : undefined
+  : {
+      "@type": "Organization",
+      "@id": organizationId(Astro.site),
+      name: profileName,
+      url: Astro.site?.href,
+    };
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Event",
@@ -75,25 +104,8 @@ const structuredData = {
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   url: new URL(Astro.url.pathname, Astro.site).href,
   image: new URL(ogUrl, Astro.site).href,
-  location: {
-    "@type": "Place",
-    name: venue.name,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: venue.streetAddress,
-      addressLocality: venue.addressLocality,
-      ...(venue.postalCode ? { postalCode: venue.postalCode } : {}),
-      ...(venue.addressRegion ? { addressRegion: venue.addressRegion } : {}),
-      addressCountry,
-    },
-  },
-  organizer: {
-    "@type": "SportsOrganization",
-    name: profileName,
-    url: Astro.site?.href,
-    telephone,
-    email,
-  },
+  location,
+  ...(organizer ? { organizer } : {}),
   ...(guest
     ? { performer: { "@type": "Person", name: guest } }
     : {}),

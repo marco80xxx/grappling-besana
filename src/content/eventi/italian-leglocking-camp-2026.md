@@ -18,6 +18,7 @@ schedule:
 bookingRequired: false
 notice: "Evento organizzato da Kano Camps, non da Grappling Besana."
 external: true
+organizerName: "Kano Camps"
 image:
   url: "/images/eventi/italian-leglocking-camp-2026-card.jpg"
   alt: "Il gruppo di Grappling Besana all'Italian Leglocking Camp 2026, seduto sui tatami di Fight Evolution"
