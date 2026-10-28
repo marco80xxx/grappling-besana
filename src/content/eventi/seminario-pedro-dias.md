@@ -26,7 +26,7 @@ poster:
   alt: "Foto di gruppo dei partecipanti al seminario con Pedro Dias, in posa sul tatami di Besana Brianza"
 flyer:
   url: "/images/eventi/seminario-pedro-dias-locandina.jpg"
-  alt: "Locandina del seminario con Pedro Dias: sabato 7 febbraio, ore 11:00-13:00, Polisportiva Besanese, Besana Brianza"
+  alt: "Locandina del seminario con Pedro Dias: sabato 7 febbraio, dalle 11:00 alle 13:00, alla Polisportiva Besanese"
 draft: false
 ---
 

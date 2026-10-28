@@ -7,34 +7,20 @@ description: 'Corso di Grappling e BJJ a Besana in Brianza, gi e no-gi, per prin
 skills: ["standing", "Takedown"]
 image:
   url: "/images/projects/judo/grappling-card-image.jpg"
-  alt: "grappling besana discipline"
+  alt: "Due atleti di Grappling Besana in presa durante un allenamento sul tatami"
 --- 
 
 Il corso di **Grappling** (o Brazilian Jiu-jitsu) è al cuore della nostra scuola. I corsi sono tenuti da <a href="https://www.instagram.com/bjj_marcobex/" target="blank">Marco Beccari</a>, cintura nera col grado di **Maestro** nel Brazilian Jiu-Jitsu, riconosciuto da FIJLKAM/CONI e Unione Italiana Jiu-jitsu.
 
 ## 👨‍🏫 I Coach di Grappling
 
-![orari grappling bjj judo s&c Besana Brianza](../../assets/images/marco.png "marco beccari bjj grappling besana team jiu-jitsu")
+![Marco Beccari, coach e cintura nera di BJJ di Grappling Besana](../../assets/images/marco.png)
 
-
-Il coach di Grappling Besana è <a href="https://www.instagram.com/bjj_marcobex/" target="blank">Marco Beccari</a>, cintura nera col grado di **Maestro** nel Brazilian Jiu-Jitsu, riconosciuto da FIJLKAM/CONI e Unione Italiana Jiu-jitsu. Ha conseguito la cintura nera nel giugno 2022 in una delle più blasonate accademie della Brianza. Pratica BJJ dal 2014 ed è anche una cintura nera di Judo, che ha praticato per molti anni fin dalle scuole medie.
-
-Tra i risultati agonistici più significativi:
-<ul>
-<li>2022 Roma: 🥇 Oro Europeo Master 3 IBJJF - Cinture Marroni</li>
-<li>2022 Luxembourg: 🥇 Oro No-gi Master NAGA - Cinture Nere</li>
-<li>2019 Barcellona: 🥇 Oro Europe Master Open IBJJF - Cinture Viola</li>
-<li>2019 Firenze: 🥇 Oro Italiano Gi Master UIJJ - Cinture Viola</li>
-<li>2019 Firenze: 🥇 Oro Italiano No-Gi Master UIJJ - Cinture Viola</li>
-<li>2018 Firenze: 🥇 Oro Italiano Gi Master UIJJ - Cinture Viola</li>
-<li>2018 Firenze: 🥇 Oro Italiano No-Gi Master UIJJ - Cinture Viola</li>
-<li>2017 Firenze: 🥇 Oro Assoluti Italiano No-Gi Master UIJJ - Viola</li>
-<li>2016 Lisbona: 🥈 Argento Europeo Master 2 IBJJF - Cinture Blu</li>
-</ul>
+Il coach di Grappling Besana è <a href="https://www.instagram.com/bjj_marcobex/" target="blank">Marco Beccari</a>, Maestro di Brazilian Jiu-Jitsu (cintura nera dal 2022, pratica BJJ dal 2014) e cintura nera di Judo. Il profilo completo, con i risultati agonistici, è nella pagina [I nostri insegnanti](/about-us/#i-nostri-insegnanti).
 
 <hr class="my-16 border-t border-blacktext/15 dark:border-white/10" />
 
-![nabil ben leghlid coach grappling besana besana brianza](../../assets/images/nabil.png "nabil ben leghlid bjj grappling besana team jiu-jitsu")
+![Nabil Ben Leghlid, coach di Grappling e cintura marrone di BJJ di Grappling Besana](../../assets/images/nabil.png)
 
 <a href="https://www.instagram.com/arabominio/" target="blank">Nabil Ben Leghlid</a>, cintura marrone di Brazilian Jiu-Jitsu, si occupa dei corsi di Grappling del lunedì e venerdì alle 12:30. Pratica BJJ dal 2019 e tra le esperienze più significative ha trascorso un anno ad allenarsi alla Sydney West Martial Arts, palestra interamente dedicata al no-gi grappling, sotto la guida del coach Luke Martin e a fianco di numerosi veterani ADCC — un'occasione che gli ha permesso di osservare da vicino il metodo di allenamento di professionisti del calibro di Josh Saunders, abituati a competere ad appuntamenti come ADCC Worlds e WNO.
 
