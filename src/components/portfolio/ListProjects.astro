@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 
 interface ProjectFrontmatter {
   title: string;
+  heading?: string;
   description: string;
   pubDate: string;
   image: { url: string; alt: string };
@@ -12,7 +13,7 @@ interface ProjectFrontmatter {
 
 const allPosts = Object.values(
   import.meta.glob<{ frontmatter: ProjectFrontmatter; url: string }>(
-    "../../pages/portfolio/projects/*.md",
+    "../../pages/corsi/*.md",
     { eager: true },
   ),
 );
@@ -61,8 +62,8 @@ allPosts.sort(
     {
       allPosts.map((post) => (
         <Project
-          url={post.url}
-          title={post.frontmatter.title}
+          url={post.url.endsWith("/") ? post.url : `${post.url}/`}
+          title={post.frontmatter.heading ?? post.frontmatter.title}
           description={post.frontmatter.description}
           date={post.frontmatter.pubDate}
           image={post.frontmatter.image}

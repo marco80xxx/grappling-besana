@@ -1,0 +1,7 @@
+# Vecchie pagine disciplina -> nuove URL /corsi/* (301, con e senza slash finale)
+/portfolio/projects/grappling /corsi/grappling-bjj/ 301
+/portfolio/projects/grappling/ /corsi/grappling-bjj/ 301
+/portfolio/projects/judo /corsi/judo/ 301
+/portfolio/projects/judo/ /corsi/judo/ 301
+/portfolio/projects/strenghtandconditioning /corsi/preparazione-atletica/ 301
+/portfolio/projects/strenghtandconditioning/ /corsi/preparazione-atletica/ 301

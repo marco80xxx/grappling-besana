@@ -12,6 +12,7 @@ const { frontmatter } = Astro.props;
 
 interface ProjectFrontmatter {
   title: string;
+  heading?: string;
   description: string;
   pubDate: string;
   image: { url: string; alt: string };
@@ -19,13 +20,16 @@ interface ProjectFrontmatter {
 
 const allPosts = Object.values(
   import.meta.glob<{ frontmatter: ProjectFrontmatter; url: string }>(
-    "../pages/portfolio/projects/*.md",
+    "../pages/corsi/*.md",
     { eager: true },
   ),
 );
 const otherPosts = allPosts.filter(
   (post) => post.frontmatter.title !== frontmatter.title,
 );
+
+// `title` = <title> SEO; `heading` = h1 visibile e titolo delle card
+const heading = frontmatter.heading ?? frontmatter.title;
 
 const heroImage = frontmatter.image?.url ? getLocalImage(frontmatter.image.url) : undefined;
 const ogImage = heroImage
@@ -49,10 +53,10 @@ const ogImage = heroImage
       <header class="flex flex-col gap-4" id="start">
         <div class="flex items-center justify-between gap-4 flex-wrap">
           <DatePub date={frontmatter.pubDate} />
-          <ShareButton title={frontmatter.title} />
+          <ShareButton title={heading} />
         </div>
 
-        <Heading text={frontmatter.title} />
+        <Heading text={heading} />
       </header>
 
       <figure>
@@ -82,8 +86,8 @@ const ogImage = heroImage
             <div class="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
               {otherPosts.map((post) => (
                 <Project
-                  url={post.url}
-                  title={post.frontmatter.title}
+                  url={post.url.endsWith("/") ? post.url : `${post.url}/`}
+                  title={post.frontmatter.heading ?? post.frontmatter.title}
                   description={post.frontmatter.description}
                   image={post.frontmatter.image}
                 />
@@ -93,7 +97,7 @@ const ogImage = heroImage
         )
       }
     </article>
-    <NavArticle title={frontmatter.title} />
+    <NavArticle title={heading} />
   </section>
   <div
     class="flex flex-col gap-6 max-w-4xl max-lg:py-2 py-3 max-xl:py-2 mx-auto"
