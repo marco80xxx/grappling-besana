@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MarkdownAbout.astro
 title: "Grappling Besana | Team di Brazilian Jiu-Jitsu"
-description: "Un team di Brazilian Jiu-Jitsu fortemente orientato al grappling"
+description: "Il team Grappling Besana: BJJ, grappling e judo a Besana in Brianza. La nostra filosofia, gli insegnanti, la sede e gli orari della stagione 2026/27."
 author: "Grappling Besana"
 image:
   url: "/images/GB-Logo-Tondo-01.svg"
