@@ -1,7 +1,7 @@
 ---
 layout: /src/layouts/MarkdownAbout.astro
 title: "Grappling Besana | Team di Brazilian Jiu-Jitsu"
-description: "Un team di Brazilian Jiu-Jitsu fortemente orientato al grappling"
+description: "Il team Grappling Besana: BJJ, grappling e judo a Besana in Brianza. La nostra filosofia, gli insegnanti, la sede e gli orari della stagione 2026/27."
 author: "Grappling Besana"
 image:
   url: "/images/GB-Logo-Tondo-01.svg"
@@ -56,7 +56,7 @@ Unisciti a noi e scopri il piacere di imparare e crescere insieme, in un team ch
 
 ## I nostri insegnanti
 
-![orari grappling bjj judo s&c Besana Brianza](../assets/images/marco.png "marco beccari bjj grappling besana team jiu-jitsu")
+![Marco Beccari, coach e cintura nera di BJJ di Grappling Besana](../assets/images/marco.png)
 
 
 Il coach di Grappling Besana è <a href="https://www.instagram.com/bjj_marcobex/" target="blank">Marco Beccari</a>, cintura nera col grado di **Maestro** nel Brazilian Jiu-Jitsu, riconosciuto da FIJLKAM/CONI e Unione Italiana Jiu-jitsu. Ha conseguito la cintura nera nel giugno 2022 in una delle più blasonate accademie della Brianza. Pratica BJJ dal 2014 ed è anche una cintura nera di Judo, che ha praticato per molti anni fin dalle scuole medie.
@@ -76,7 +76,7 @@ Tra i risultati agonistici più significativi:
 
 <hr class="my-16 border-t border-blacktext/15 dark:border-white/10" />
 
-![nabil ben leghlid coach grappling besana besana brianza](../assets/images/nabil.png "nabil ben leghlid bjj grappling besana team jiu-jitsu")
+![Nabil Ben Leghlid, coach di Grappling e cintura marrone di BJJ di Grappling Besana](../assets/images/nabil.png)
 
 <a href="https://www.instagram.com/arabominio/" target="blank">Nabil Ben Leghlid</a>, cintura marrone di Brazilian Jiu-Jitsu, si occupa dei corsi di Grappling del lunedì e venerdì alle 12:30. Pratica BJJ dal 2019 e tra le esperienze più significative ha trascorso un anno ad allenarsi alla Sydney West Martial Arts, palestra interamente dedicata al no-gi grappling, sotto la guida del coach Luke Martin e a fianco di numerosi veterani ADCC — un'occasione che gli ha permesso di osservare da vicino il metodo di allenamento di professionisti del calibro di Josh Saunders, abituati a competere ad appuntamenti come ADCC Worlds e WNO.
 
@@ -91,7 +91,7 @@ All'interno del team sono presenti numerose cinture di alto grado tra Marroni e 
 
 ## 🕒 Orari 2026/27
 
-![orari grappling bjj judo s&c Besana Brianza](../assets/images/Orari-Classi-Grappling-Besana-2026-2027.png "Orari Stagione 2026/27 Grappling Besana")
+<!-- tabella-orari -->
 
 
 ## Let's Do Amazing Things 🚀 

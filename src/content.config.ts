@@ -19,6 +19,8 @@ const jsonDataCollection = defineCollection({
     whereTitle: z.string(),
     email: z.email(),
     instagram: z.url(),
+    // Scheda Google Business Profile (usata in sameAs dei dati strutturati)
+    googleBusinessProfile: z.url().optional(),
     whatsapp: z.url(),
     whatsappIconName: z.string(),
     telephone: z.string(),
@@ -82,6 +84,8 @@ const eventiCollection = defineCollection({
     // true = evento organizzato da terzi a cui partecipiamo (mostrato in
     // "Altri eventi" finche' e' in arrivo, non tra i nostri "In arrivo")
     external: z.boolean().default(false),
+    // Nome dell'organizzatore per gli eventi esterni (nei dati strutturati)
+    organizerName: z.string().optional(),
     // Immagine quadrata (1:1) della card
     image: z.object({ url: z.string(), alt: z.string() }),
     // Immagine principale in cima alla pagina evento (se assente si usa `image`)

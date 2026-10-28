@@ -1,12 +1,13 @@
 ---
 layout:  /src/layouts/ProjectLayout.astro
-title: 'Judo'
+title: 'Corso di Judo a Besana in Brianza | Grappling Besana'
+heading: 'Judo'
 pubDate: 2025-09-01
-description: 'Corso di Judo a cura della Besanese Judo'
+description: 'Corso di Judo a Besana in Brianza a cura di Besanese Judo, con il Maestro Alessandro Comi: proiezioni e gioco in piedi, martedì e giovedì sera.'
 skills: ["standing", "Takedown"]
 image:
   url: "/images/projects/judo/judo-besanese.jpg"
-  alt: "judo polisportiva besanese"
+  alt: "Due judoka si affrontano in gara, in judogi bianco e blu, impegnati nella presa"
 --- 
 
 Il corso di **Judo** è a cura di <a href="https://www.instagram.com/besanesejudo/" target="blank">Besanese Judo</a>, sotto la guida del Maestro <a href="https://www.instagram.com/comi.ale/" target="blank">Alessandro Comi</a>, e degli istruttori cintura nera **Emanuele Castagna** e **Filippo Poni**. Lo proponiamo in abbinamento al Grappling/Bjj per un miglioramento complessivo delle skill dell'atleta, sia in piedi che a terra, compreso nell'abbonamento al pacchetto FULL, oppure come integrazione del pacchetto BASE.

@@ -1,7 +1,7 @@
 ---
 title: "Italian Leglocking Camp 2026"
 subtitle: "Grappling Besana in trasferta da Kano Camps"
-description: "Il 3-4 ottobre eravamo in 9 all'Italian Leglocking Camp di Kano Camps a Villatora di Saonara (PD): due giorni di no-gi con Ivan Tomasetti, Manuel Pilato e Christian Frillici. Evento esterno, non organizzato da Grappling Besana."
+description: "Italian Leglocking Camp di Kano Camps a Villatora di Saonara (PD), 3-4 ottobre: eravamo in 9. Evento esterno, non organizzato da Grappling Besana."
 startDate: "2026-10-03T10:30:00+02:00"
 endDate: "2026-10-04T16:00:00+02:00"
 venue:
@@ -18,6 +18,7 @@ schedule:
 bookingRequired: false
 notice: "Evento organizzato da Kano Camps, non da Grappling Besana."
 external: true
+organizerName: "Kano Camps"
 image:
   url: "/images/eventi/italian-leglocking-camp-2026-card.jpg"
   alt: "Il gruppo di Grappling Besana all'Italian Leglocking Camp 2026, seduto sui tatami di Fight Evolution"

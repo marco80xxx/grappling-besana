@@ -1,0 +1,52 @@
+---
+import { orari, stagione } from "../../data/orari";
+---
+
+<div
+  class="w-full overflow-x-auto rounded-2xl border border-neutral-100 bg-white text-blacktext dark:border-white/10 dark:bg-transparent dark:text-gray-200"
+>
+  <table class="w-full border-collapse text-left text-base max-sm:text-[13px]">
+    <caption class="sr-only">
+      Orari settimanali dei corsi di Grappling Besana, stagione {stagione}
+    </caption>
+    <thead
+      class="bg-neutral-50 text-xs uppercase tracking-wide text-blacktext/70 dark:bg-white/5 dark:text-zinc-400"
+    >
+      <tr>
+        <th scope="col" class="px-4 py-3 font-bold max-sm:px-2">Giorno</th>
+        <th scope="col" class="px-4 py-3 font-bold max-sm:px-2">Orario</th>
+        <th scope="col" class="px-4 py-3 font-bold max-sm:px-2">Corso</th>
+      </tr>
+    </thead>
+    {
+      orari.map((giorno) => (
+        <tbody class="border-t border-neutral-100 dark:border-white/10">
+          {giorno.lezioni.map((lezione, indice) => (
+            <tr>
+              {indice === 0 && (
+                <th
+                  scope="rowgroup"
+                  rowspan={giorno.lezioni.length}
+                  class="bg-mint-50/60 px-4 py-3 text-left align-top font-bold text-blacktext dark:bg-white/5 dark:text-white max-sm:px-2"
+                >
+                  {giorno.nome}
+                </th>
+              )}
+              <td class="whitespace-nowrap px-4 py-3 font-semibold tabular-nums max-sm:px-2">
+                {lezione.inizio} – {lezione.fine}
+              </td>
+              <td class="px-4 py-3 max-sm:px-2">
+                {lezione.corso}{" "}
+                {lezione.nota && (
+                  <span class="text-blacktext/60 dark:text-zinc-400">
+                    ({lezione.nota})
+                  </span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      ))
+    }
+  </table>
+</div>

@@ -1,0 +1,60 @@
+---
+// NON PUBBLICATA: il prefisso "_" esclude questo file dal routing di Astro.
+// Istruzioni per attivarla in src/data/faq.ts.
+import Layout from "../layouts/Layout.astro";
+import Heading from "../components/ui/Heading.astro";
+import Contact from "../components/portfolio/Contact.astro";
+import { answeredFaq } from "../data/faq";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: answeredFaq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+---
+
+<Layout
+  pageTitle="Domande frequenti | Grappling Besana"
+  description="Le risposte alle domande più frequenti su corsi, prova, iscrizione e cosa portare in palestra a Grappling Besana, a Besana in Brianza."
+  noindex={answeredFaq.length === 0}
+>
+  {
+    answeredFaq.length > 0 && (
+      <script
+        is:inline
+        type="application/ld+json"
+        slot="head"
+        set:html={JSON.stringify(structuredData)}
+      />
+    )
+  }
+
+  <section class="relative mx-auto flex flex-row justify-center gap-6 px-8 max-sm:px-4">
+    <article
+      class="mt-8 flex max-w-3xl flex-col gap-6 rounded-2xl border border-neutral-100 bg-white px-14 pb-10 pt-8 max-md:w-full max-md:px-10 max-sm:px-4 dark:border-0 dark:bg-transparent"
+    >
+      <Heading text="Domande" textGradient="frequenti" level={1} />
+
+      <div class="flex flex-col gap-3">
+        {
+          answeredFaq.map((item) => (
+            <details class="group rounded-xl border border-neutral-100 px-5 py-4 dark:border-white/10">
+              <summary class="cursor-pointer text-lg font-bold text-blacktext dark:text-white">
+                {item.question}
+              </summary>
+              <p class="mt-3 text-base font-medium text-blacktext dark:text-gray-200">
+                {item.answer}
+              </p>
+            </details>
+          ))
+        }
+      </div>
+    </article>
+  </section>
+
+  <Contact />
+</Layout>
