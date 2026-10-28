@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Heading from "../components/ui/Heading.astro";
 import Contact from "../components/portfolio/Contact.astro";
 import { getCollection } from "astro:content";
-import { buildFaq, faqIntro } from "../data/faq";
+import { buildFaq, faqIntro, segmentAnswer } from "../data/faq";
 
 const [staticData] = await getCollection("staticData");
 const faq = buildFaq(staticData.data);
@@ -58,7 +58,21 @@ const structuredData = {
                 {item.question}
               </h2>
               <p class="m-0 text-lg font-medium leading-8 text-blacktext max-md:text-base dark:text-gray-200">
-                {item.answer}
+                {segmentAnswer(item.answer, item.inline).map((parte) =>
+                  typeof parte === "string" ? (
+                    parte
+                  ) : (
+                    <a
+                      href={parte.href}
+                      class="font-semibold text-mint-600 underline decoration-dotted underline-offset-4 hover:decoration-solid dark:text-mint-400"
+                      {...(parte.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      {parte.text}
+                    </a>
+                  ),
+                )}
               </p>
               {item.links && item.links.length > 0 && (
                 <p class="m-0 flex flex-wrap gap-x-5 gap-y-2 text-base font-semibold">

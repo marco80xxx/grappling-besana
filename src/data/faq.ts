@@ -20,11 +20,46 @@ export interface FaqLink {
   external?: boolean;
 }
 
+/** Parola (o frase) della risposta da rendere cliccabile; il testo resta invariato. */
+export interface InlineLink {
+  text: string;
+  href: string;
+  external?: boolean;
+}
+
 export interface FaqItem {
   id: string;
   question: string;
   answer: string;
+  /** Link dentro la frase: cambiano solo il markup, non `answer` (ne il JSON-LD). */
+  inline?: InlineLink[];
   links?: FaqLink[];
+}
+
+export type AnswerSegment = string | InlineLink;
+
+/** Divide la risposta in testo semplice e link inline (prima occorrenza di ogni `text`). */
+export function segmentAnswer(answer: string, inline: InlineLink[] = []): AnswerSegment[] {
+  const trovati = inline
+    .map((link) => {
+      const index = answer.indexOf(link.text);
+      if (index < 0) {
+        throw new Error(`[faq] Il testo del link "${link.text}" non compare nella risposta: "${answer.slice(0, 50)}..."`);
+      }
+      return { link, index };
+    })
+    .sort((a, b) => a.index - b.index);
+
+  const segmenti: AnswerSegment[] = [];
+  let cursore = 0;
+  for (const { link, index } of trovati) {
+    if (index < cursore) continue;
+    if (index > cursore) segmenti.push(answer.slice(cursore, index));
+    segmenti.push(link);
+    cursore = index + link.text.length;
+  }
+  if (cursore < answer.length) segmenti.push(answer.slice(cursore));
+  return segmenti;
 }
 
 /** Campi di allStaticData.json usati dalla FAQ. */
@@ -70,6 +105,10 @@ export function buildFaq(ctx: FaqContext): FaqItem[] {
   // --- contatti e indirizzo ---------------------------------------------
   const handleInstagram = new URL(ctx.instagram).pathname.replace(/\//g, "");
   const via = minuscola(ctx.streetAddress);
+  // Azioni per prenotare la prova: messaggio/oggetto precompilati, cosi chi
+  // scrive arriva gia con la richiesta giusta.
+  const whatsappProva = `${ctx.whatsapp.split("?")[0]}?text=${encodeURIComponent("Ciao, vorrei prenotare una lezione di prova")}`;
+  const emailProva = `mailto:${ctx.email}?subject=${encodeURIComponent("Richiesta lezione di prova")}`;
   const mapsQuery = encodeURIComponent(
     `Polisportiva Besanese, ${ctx.streetAddress}, ${ctx.addressLocality}`,
   );
@@ -86,6 +125,11 @@ export function buildFaq(ctx: FaqContext): FaqItem[] {
       question: "Posso fare una lezione di prova?",
       answer:
         "Sì, la prima lezione di prova è gratuita. Va prenotata scrivendoci su WhatsApp, su Instagram o via email: ti diciamo quale lezione è più adatta per iniziare.",
+      inline: [
+        { text: "WhatsApp", href: whatsappProva, external: true },
+        { text: "Instagram", href: ctx.instagram, external: true },
+        { text: "email", href: emailProva },
+      ],
     },
     {
       id: "eta-minima",
