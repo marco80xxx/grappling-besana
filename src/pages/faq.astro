@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Heading from "../components/ui/Heading.astro";
+import Contact from "../components/portfolio/Contact.astro";
+import { getCollection } from "astro:content";
+import { buildFaq, faqIntro } from "../data/faq";
+
+const [staticData] = await getCollection("staticData");
+const faq = buildFaq(staticData.data);
+
+// Il testo delle risposte nel JSON-LD e identico a quello visibile (i link
+// extra non ne fanno parte).
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+---
+
+<Layout
+  pageTitle="Domande frequenti | Grappling Besana – BJJ e Grappling a Besana in Brianza"
+  description="Lezione di prova gratuita, orari, abbonamenti, cosa portare, età e certificato medico: tutte le risposte sui corsi di BJJ, Grappling e Judo di Grappling Besana."
+>
+  <script
+    is:inline
+    type="application/ld+json"
+    slot="head"
+    set:html={JSON.stringify(structuredData)}
+  />
+
+  <section
+    class="relative mx-auto flex flex-row justify-center gap-6 px-8 max-sm:px-4"
+  >
+    <article
+      class="mt-8 flex max-w-3xl flex-col gap-8 rounded-2xl border border-neutral-100 bg-white px-14 pb-10 pt-8 max-md:w-full max-md:px-10 max-sm:px-4 dark:border-0 dark:bg-transparent"
+    >
+      <header class="flex flex-col gap-4">
+        <Heading text="Domande" textGradient="frequenti" level={1} />
+        <p
+          class="m-0 text-lg font-medium leading-8 text-blacktext max-md:text-base dark:text-gray-200"
+        >
+          {faqIntro}
+        </p>
+      </header>
+
+      <div class="flex flex-col">
+        {
+          faq.map((item) => (
+            <section
+              id={item.id}
+              class="flex scroll-mt-28 flex-col gap-3 border-t border-neutral-100 py-6 first:border-t-0 first:pt-0 dark:border-white/10"
+            >
+              <h2 class="text-2xl font-bold text-blacktext max-md:text-xl dark:text-white">
+                {item.question}
+              </h2>
+              <p class="m-0 text-lg font-medium leading-8 text-blacktext max-md:text-base dark:text-gray-200">
+                {item.answer}
+              </p>
+              {item.links && item.links.length > 0 && (
+                <p class="m-0 flex flex-wrap gap-x-5 gap-y-2 text-base font-semibold">
+                  {item.links.map((link) => (
+                    <a
+                      href={link.href}
+                      class="text-mint-600 underline decoration-dotted underline-offset-4 hover:decoration-solid dark:text-mint-400"
+                      {...(link.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </p>
+              )}
+            </section>
+          ))
+        }
+      </div>
+    </article>
+  </section>
+
+  <Contact />
+</Layout>
