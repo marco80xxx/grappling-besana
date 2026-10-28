@@ -129,7 +129,7 @@ export function buildFaq(ctx: FaqContext): FaqItem[] {
     {
       id: "open-mat",
       question: `Cos'è l'Open Mat del ${giornoOpenMatNudo}?`,
-      answer: `È una sessione libera ${giornoOpenMat} dalle ${orarioOpenMat?.inizio} alle ${orarioOpenMat?.fine}, senza lezione guidata: si fa sparring e si ripassa la tecnica con i compagni. È compresa in entrambi gli abbonamenti ed è aperta gratuitamente anche ad atleti di altre accademie, purché assicurati presso la propria palestra.`,
+      answer: `È una sessione libera ${giornoOpenMat} dalle ${orarioOpenMat?.inizio} alle ${orarioOpenMat?.fine}, senza lezione guidata: si fa sparring e si ripassa la tecnica con i compagni. È compresa in entrambi gli abbonamenti ed è aperta gratuitamente anche ad atleti di altre accademie, purché iscritti presso la propria palestra e con regolare visita medica sportiva.`,
     },
     {
       id: "gare",
