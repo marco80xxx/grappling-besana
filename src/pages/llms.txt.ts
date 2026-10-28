@@ -81,6 +81,7 @@ ${coaches.map((c) => `- ${c.name}: ${c.jobTitle}`).join("\n")}
 - [Home](${abs("/")}): corsi, orari, sede e contatti
 - [Chi siamo](${abs("/about-us/")}): il team, la filosofia, gli insegnanti e i loro risultati
 - [Eventi](${abs("/eventi/")}): seminari con ospiti, raduni ed eventi a cui partecipiamo
+- [Domande frequenti](${abs("/faq/")}): prova gratuita, orari, abbonamenti, cosa portare, età e certificato medico
 - [Informativa privacy](${abs("/privacy/")})
 `;
 

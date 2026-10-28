@@ -96,4 +96,6 @@ All'interno del team sono presenti numerose cinture di alto grado tra Marroni e 
 
 ## Let's Do Amazing Things 🚀 
 
+Hai dubbi? Leggi le [domande frequenti](/faq/).
+
 Ti aspettiamo per una prova, contattaci su <a href="https://www.instagram.com/grappling_besana/" target="blank">instagram</a> o dal link qui sotto! 👇
