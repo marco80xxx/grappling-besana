@@ -4,6 +4,8 @@ import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import { getCollection } from "astro:content";
 import { getOpeningHoursSpecification } from "../data/orari";
+import { coaches } from "../data/coaches";
+import { organizationId, schemaId } from "../utils/schema";
 const {
   pageTitle = "Grappling Besana - Scuola di Brazilian Jiu Jitsu a Besana in Brianza",
   description = "Benvenuti a Grappling Besana, la tua scuola di Brazilian Jiu Jitsu a Besana in Brianza. Unisciti a noi per imparare, crescere e competere in un ambiente amichevole e stimolante.",
@@ -20,7 +22,6 @@ const SEO = {
   url: siteUrl,
   locale: "it_IT",
   author: "grappling besana",
-  twitter: "@grapplingbesana",
 };
 
 
@@ -35,7 +36,8 @@ const {
   telephone,
   email: businessEmail,
   instagram,
-  whatsapp,
+  googleBusinessProfile,
+  pageDescription,
   streetAddress,
   addressLocality,
   postalCode,
@@ -48,11 +50,16 @@ const {
 // Fasce orarie derivate dal palinsesto unico (src/data/orari.ts)
 const openingHoursSpecification = getOpeningHoursSpecification();
 
+const orgId = organizationId(Astro.site ?? siteUrl);
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "SportsActivityLocation",
+  "@id": orgId,
   name: profileName,
+  description: pageDescription,
   url: siteUrl,
+  logo: `${siteUrl}/android-chrome-512x512.png`,
   image: `${siteUrl}${ogimage.url}`,
   telephone,
   email: businessEmail,
@@ -69,8 +76,16 @@ const structuredData = {
     latitude: geoLat,
     longitude: geoLng,
   },
-  sameAs: [instagram, whatsapp].filter(Boolean),
+  sameAs: [instagram, googleBusinessProfile].filter(Boolean),
   openingHoursSpecification,
+  employee: coaches.map((coach) => ({
+    "@type": "Person",
+    "@id": schemaId(Astro.site ?? siteUrl, coach.slug),
+    name: coach.name,
+    jobTitle: coach.jobTitle,
+    sameAs: [coach.instagram],
+    worksFor: { "@id": orgId },
+  })),
 };
 ---
 
@@ -113,7 +128,6 @@ const structuredData = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={twitterimage} />
     <meta name="twitter:image:alt" content={ogimage.alt} />
-    <meta name="twitter:site" content={SEO.twitter} />
   
     <meta name="theme-color" content="#0E0E11"/>
 

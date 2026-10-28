@@ -19,6 +19,8 @@ const jsonDataCollection = defineCollection({
     whereTitle: z.string(),
     email: z.email(),
     instagram: z.url(),
+    // Scheda Google Business Profile (usata in sameAs dei dati strutturati)
+    googleBusinessProfile: z.url().optional(),
     whatsapp: z.url(),
     whatsappIconName: z.string(),
     telephone: z.string(),
